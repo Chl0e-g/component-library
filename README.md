@@ -47,13 +47,13 @@ The project focuses on building accessible, composable and type-safe UI componen
 ### Installation
 
 ```bash
-pnpm install
+npm install
 ```
 
 ### Start the development server
 
 ```bash
-pnpm dev
+npm dev
 ```
 
 The application will be available at:
