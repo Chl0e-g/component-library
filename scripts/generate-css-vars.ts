@@ -1,28 +1,26 @@
 import { writeFileSync } from "node:fs";
 
-import { colors } from "../tokens/colors";
-import { spacing } from "../tokens/spacing";
-import { radius } from "../tokens/radius";
+import { colors } from "../src/tokens/colors.ts";
+import { spacing } from "../src/tokens/spacing.ts";
+import { radius } from "../src/tokens/radius.ts";
 import {
   fontFamily,
   fontSize,
   fontWeight,
   lineHeight,
-} from "../tokens/typography";
+} from "../src/tokens/typography.ts";
 
 type Tokens = Record<string, string | number>;
 
 function generateVariables(
   prefix: string,
   tokens: Tokens,
-  unit?: string
+  unit?: string,
 ): string {
   return Object.entries(tokens)
     .map(([key, value]) => {
       const formattedValue =
-        typeof value === "number" && unit
-          ? `${value}${unit}`
-          : value;
+        typeof value === "number" && unit ? `${value}${unit}` : value;
 
       return `  --${prefix}-${key}: ${formattedValue};`;
     })
@@ -30,7 +28,6 @@ function generateVariables(
 }
 
 const css = `:root {
-
 ${generateVariables("color", colors)}
 
 ${generateVariables("spacing", spacing, "px")}

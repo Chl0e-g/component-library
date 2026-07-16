@@ -1,6 +1,6 @@
 import { writeFileSync } from "node:fs";
 
-import { textStyles } from "../tokens/typography";
+import { textStyles } from "../src/tokens/typography.ts";
 
 function generateTextStyles(
   styles: typeof textStyles

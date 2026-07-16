@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "generate:tokens": "tsx src/scripts/generate-css-vars.ts && tsx src/scripts/generate-text-styles.ts"
+    "generate:tokens": "tsx scripts/generate-css-vars.ts && tsx scripts/generate-text-styles.ts"
   },
   "dependencies": {
     "react": "^19.2.7",
