@@ -1,0 +1,89 @@
+:root {
+
+  --color-neutral-10: #FDFCFA;
+  --color-neutral-20: #F5F3EF;
+  --color-neutral-30: #EDEAE4;
+  --color-neutral-40: #E3DFD8;
+  --color-neutral-50: #C4C0B8;
+  --color-neutral-60: #9A9690;
+  --color-neutral-70: #6B6760;
+  --color-neutral-80: #4A4845;
+  --color-neutral-90: #2E2C2A;
+  --color-neutral-100: #1A1A24;
+  --color-primary-10: #EEF1F8;
+  --color-primary-20: #D6DEED;
+  --color-primary-30: #AEBDD9;
+  --color-primary-40: #849DC4;
+  --color-primary-50: #607FB0;
+  --color-primary-60: #3E639B;
+  --color-primary-70: #2E4F80;
+  --color-primary-80: #243F68;
+  --color-primary-90: #1C2B4A;
+  --color-primary-100: #111A2D;
+  --color-success-10: #ECFDF5;
+  --color-success-20: #D1FAE5;
+  --color-success-30: #A7F3D0;
+  --color-success-40: #34D399;
+  --color-success-50: #10B981;
+  --color-success-60: #059669;
+  --color-success-70: #047857;
+  --color-success-80: #064E3B;
+  --color-warning-10: #FFFBEB;
+  --color-warning-20: #FEF3C7;
+  --color-warning-30: #FDE68A;
+  --color-warning-40: #FBBF24;
+  --color-warning-50: #F59E0B;
+  --color-warning-60: #D97706;
+  --color-warning-70: #B45309;
+  --color-warning-80: #78350F;
+  --color-danger-10: #FEF2F2;
+  --color-danger-20: #FEE2E2;
+  --color-danger-30: #FECACA;
+  --color-danger-40: #F87171;
+  --color-danger-50: #EF4444;
+  --color-danger-60: #DC2626;
+  --color-danger-70: #B91C1C;
+  --color-danger-80: #7F1D1D;
+  --color-background: #F5F3EF;
+  --color-foreground: #1A1A24;
+  --color-card: #FDFCFA;
+  --color-primary: #1C2B4A;
+
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 40px;
+  --spacing-3xl: 48px;
+  --spacing-4xl: 64px;
+  --spacing-5xl: 80px;
+  --spacing-6xl: 96px;
+
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-full: 9999px;
+
+  --font-family-serif: "Libre Baskerville", Georgia, serif;
+  --font-family-sans: "Inter", system-ui, sans-serif;
+  --font-family-mono: "JetBrains Mono", "Courier New", monospace;
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+
+}
