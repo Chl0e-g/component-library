@@ -61,5 +61,10 @@
     "vite": "^8.1.1",
     "vite-plugin-dts": "^5.0.3",
     "vitest": "^4.1.10"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.2.8",
+    "@fontsource/jetbrains-mono": "^5.2.8",
+    "@fontsource/libre-baskerville": "^5.2.10"
   }
 }
