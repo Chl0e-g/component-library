@@ -5,13 +5,21 @@ import { textStyles } from "../src/tokens/typography.ts";
 function generateTextStyles(styles: typeof textStyles): string {
   return Object.entries(styles)
     .map(([name, style]) => {
-      return `
-.text-${name} {
-  font-family: ${style.fontFamily};
-  font-size: ${style.fontSize};
-  font-weight: ${style.fontWeight};
-  line-height: ${style.lineHeight};
-}`;
+      const declarations = [
+        `  font-family: ${style.fontFamily};`,
+        `  font-size: ${style.fontSize};`,
+        `  font-weight: ${style.fontWeight};`,
+        `  line-height: ${style.lineHeight};`,
+      ];
+
+      if ("letterSpacing" in style) {
+        declarations.push(`  letter-spacing: ${style.letterSpacing};`);
+      }
+      if ("textTransform" in style) {
+        declarations.push(`  text-transform: ${style.textTransform};`);
+      }
+
+      return `\n.text-${name} {\n${declarations.join("\n")}\n}`;
     })
     .join("\n");
 }

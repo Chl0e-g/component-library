@@ -8,6 +8,7 @@ import {
   fontSize,
   fontWeight,
   lineHeight,
+  letterSpacing,
 } from "../src/tokens/typography.ts";
 
 type Tokens = Record<string, string | number>;
@@ -41,6 +42,8 @@ ${generateVariables("font-size", fontSize)}
 ${generateVariables("font-weight", fontWeight)}
 
 ${generateVariables("line-height", lineHeight)}
+
+${generateVariables("letter-spacing", letterSpacing)}
 
 }
 `;

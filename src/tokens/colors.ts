@@ -58,20 +58,20 @@ export const danger = {
 };
 
 export const semantic = {
-    // Surfaces
-    'background': neutral['neutral-20'],
-    'foreground': neutral['neutral-100'],
-    'card': neutral['neutral-10'],
+  // Surfaces
+  background: neutral["neutral-20"],
+  foreground: neutral["neutral-100"],
+  card: neutral["neutral-10"],
 
-    // Brand
-    'primary': primary['primary-90'],
-}
+  // Brand
+  primary: primary["primary-90"],
+};
 
 export const colors = {
   ...neutral,
   ...primary,
   ...success,
- ... warning,
- ... danger,
- ... semantic,
+  ...warning,
+  ...danger,
+  ...semantic,
 };

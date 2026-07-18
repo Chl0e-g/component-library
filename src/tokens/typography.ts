@@ -67,10 +67,40 @@ export const textStyles = {
     lineHeight: "var(--line-height-normal)",
   },
 
+  h5: {
+    fontFamily: "var(--font-family-serif)",
+    fontSize: "var(--font-size-xs)",
+    fontWeight: "var(--font-weight-semibold)",
+    lineHeight: "var(--line-height-normal)",
+  },
+
+  h6: {
+    fontFamily: "var(--font-family-serif)",
+    fontSize: "var(--font-size-xs)",
+    fontWeight: "var(--font-weight-medium)",
+    lineHeight: "var(--line-height-normal)",
+  },
+
   caption: {
     fontFamily: "var(--font-family-mono)",
     fontSize: "var(--font-size-sm)",
     fontWeight: "var(--font-weight-medium)",
     lineHeight: "var(--line-height-tight)",
   },
-};
+
+  overline: {
+    fontFamily: "var(--font-family-sans)",
+    fontSize: "var(--font-size-xs)",
+    fontWeight: "var(--font-weight-semibold)",
+    lineHeight: "var(--line-height-tight)",
+    letterSpacing: "var(--letter-spacing-wide)",
+    textTransform: "uppercase",
+  },
+
+  mono: {
+    fontFamily: "var(--font-family-mono)",
+    fontSize: "var(--font-size-md)",
+    fontWeight: "var(--font-weight-regular)",
+    lineHeight: "var(--line-height-normal)",
+  },
+} as const;

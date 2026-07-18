@@ -1,0 +1,19 @@
+html {
+  font-size: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-background);
+  color: var(--color-foreground);
+
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-normal);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
