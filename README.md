@@ -6,43 +6,41 @@ The project focuses on building accessible, composable and type-safe UI componen
 
 ## Goals
 
-* Target the library at internal business applications.
-* Build accessible components by default.
-* Create consistent and predictable component APIs.
-* Separate design tokens from component implementation.
-* Prioritise composition over configuration.
-* Provide excellent developer experience through TypeScript and Storybook.
-* Demonstrate testing and documentation practices expected of a modern design system.
+- Target the library at internal business applications.
+- Build accessible components by default.
+- Create consistent and predictable component APIs.
+- Separate design tokens from component implementation.
+- Prioritise composition over configuration.
+- Provide excellent developer experience through TypeScript and Storybook.
+- Demonstrate testing and documentation practices expected of a modern design system.
 
 ## Non-Goals
 
-* Replace established UI libraries such as Material UI or Mantine.
-* Include application-specific business logic.
-* Optimise for marketing websites or highly animated interfaces.
-* Build every possible component—instead, focus on a smaller set of polished, production-quality components.
-* Spending effort on important but out-of-scope areas - this is a project in my spare time, so to focus effort on the core goals I will not be:
+- Replace established UI libraries such as Material UI or Mantine.
+- Include application-specific business logic.
+- Optimise for marketing websites or highly animated interfaces.
+- Build every possible component—instead, focus on a smaller set of polished, production-quality components.
+- Spending effort on important but out-of-scope areas - this is a project in my spare time, so to focus effort on the core goals I will not be:
   - Implementing CI/CD
   - Spending lots of time on creating the design (instead I'm using a fairly classic, simple design, utilising Figma Make)
 
 ## Tech Stack
 
-* React
-* TypeScript
-* Vite
-* Storybook
-* Vitest
-* React Testing Library
-* CSS Variables (Design Tokens)
-* ESLint
-* Prettier
-* GitHub Actions
+- React
+- TypeScript
+- Vite
+- Storybook
+- Vitest
+- CSS Variables (Design Tokens)
+- ESLint
+- Prettier
 
 ## Getting Started
 
 ### Prerequisites
 
-* Node.js 20+
-* pnpm (recommended)
+- Node.js 20+
+- npm
 
 ### Installation
 
@@ -50,22 +48,12 @@ The project focuses on building accessible, composable and type-safe UI componen
 npm install
 ```
 
-### Start the development server
-
-```bash
-npm dev
-```
-
-The application will be available at:
-
-```
-http://localhost:5173
-```
-
 ### Run Storybook
 
+Storybook is the development environment for this project — there is no standalone app to run.
+
 ```bash
-npm storybook
+npm run storybook
 ```
 
 ### Run tests
@@ -74,21 +62,23 @@ npm storybook
 npm test
 ```
 
-### Build the project
+### Build the library
+
+Compiles the components in `src/` to a distributable ESM package (`dist/index.js` and `dist/index.d.ts`).
 
 ```bash
-npm build
+npm run build
 ```
 
 ## Project Principles
 
 Chloe's Component Library is guided by a small set of engineering principles:
 
-* **Accessibility First** – Components should be usable with keyboard navigation and assistive technologies by default.
-* **Composition Over Configuration** – Components provide reusable building blocks rather than exposing large numbers of configuration props.
-* **Consistent APIs** – Similar components should share the same naming conventions and behaviours wherever possible.
-* **Design Tokens Everywhere** – Colours, spacing, typography and other design values are defined as shared tokens rather than hard-coded into components.
-* **Developer Experience** – Components should be intuitive to use, well documented and fully typed.
+- **Accessibility First** – Components should be usable with keyboard navigation and assistive technologies by default.
+- **Composition Over Configuration** – Components provide reusable building blocks rather than exposing large numbers of configuration props.
+- **Consistent APIs** – Similar components should share the same naming conventions and behaviours wherever possible.
+- **Design Tokens Everywhere** – Colours, spacing, typography and other design values are defined as shared tokens rather than hard-coded into components.
+- **Developer Experience** – Components should be intuitive to use, well documented and fully typed.
 
 ## Documentation
 

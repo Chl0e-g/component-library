@@ -2,9 +2,7 @@ import { writeFileSync } from "node:fs";
 
 import { textStyles } from "../src/tokens/typography.ts";
 
-function generateTextStyles(
-  styles: typeof textStyles
-): string {
+function generateTextStyles(styles: typeof textStyles): string {
   return Object.entries(styles)
     .map(([name, style]) => {
       return `
@@ -20,9 +18,6 @@ function generateTextStyles(
 
 const css = generateTextStyles(textStyles);
 
-writeFileSync(
-  "src/styles/text-styles.css",
-  css.trim()
-);
+writeFileSync("src/styles/text-styles.css", css.trim());
 
 console.log("✓ Generated text-styles.css");
