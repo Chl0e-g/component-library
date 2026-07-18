@@ -62,9 +62,11 @@ export const semantic = {
   background: neutral["neutral-20"],
   foreground: neutral["neutral-100"],
   card: neutral["neutral-10"],
+  muted: neutral["neutral-30"],
 
   // Brand
   primary: primary["primary-90"],
+  "primary-foreground": "#FFFFFF",
 };
 
 export const colors = {

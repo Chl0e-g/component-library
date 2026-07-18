@@ -1,0 +1,31 @@
+.p-sm {
+  padding: var(--spacing-sm);
+}
+
+.p-md {
+  padding: var(--spacing-md);
+}
+
+.radius-sm {
+  border-radius: var(--radius-sm);
+}
+
+.radius-lg {
+  border-radius: var(--radius-lg);
+}
+
+.variant-card {
+  border: 1px solid var(--color-neutral-40);
+  background-color: var(--color-card);
+}
+
+.variant-muted {
+  border: 1px solid var(--color-neutral-40);
+  background-color: var(--color-muted);
+}
+
+.variant-primary {
+  border: 1px solid var(--color-primary);
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+}
