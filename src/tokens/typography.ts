@@ -5,11 +5,14 @@ export const fontFamily = {
 };
 
 export const fontSize = {
-  xs: "0.75rem",
-  sm: "0.875rem",
-  md: "1rem",
-  lg: "1.125rem",
-  xl: "1.25rem",
+  xs: "0.7rem",
+  sm: "0.75rem",
+  md: "0.875rem",
+  lg: "1rem",
+  xl: "1.125rem",
+  "2xl": "1.25rem",
+  "3xl": "1.5rem",
+  "4xl": "1.875rem",
 };
 
 export const fontWeight = {
@@ -41,49 +44,49 @@ export const textStyles = {
 
   h1: {
     fontFamily: "var(--font-family-serif)",
-    fontSize: "var(--font-size-xl)",
+    fontSize: "var(--font-size-4xl)",
     fontWeight: "var(--font-weight-bold)",
     lineHeight: "var(--line-height-relaxed)",
   },
 
   h2: {
     fontFamily: "var(--font-family-serif)",
-    fontSize: "var(--font-size-lg)",
+    fontSize: "var(--font-size-3xl)",
     fontWeight: "var(--font-weight-semibold)",
     lineHeight: "var(--line-height-relaxed)",
   },
 
   h3: {
     fontFamily: "var(--font-family-serif)",
-    fontSize: "var(--font-size-md)",
+    fontSize: "var(--font-size-2xl)",
     fontWeight: "var(--font-weight-semibold)",
     lineHeight: "var(--line-height-normal)",
   },
 
   h4: {
     fontFamily: "var(--font-family-serif)",
-    fontSize: "var(--font-size-sm)",
+    fontSize: "var(--font-size-xl)",
     fontWeight: "var(--font-weight-semibold)",
     lineHeight: "var(--line-height-normal)",
   },
 
   h5: {
     fontFamily: "var(--font-family-serif)",
-    fontSize: "var(--font-size-xs)",
+    fontSize: "var(--font-size-lg)",
     fontWeight: "var(--font-weight-semibold)",
     lineHeight: "var(--line-height-normal)",
   },
 
   h6: {
     fontFamily: "var(--font-family-serif)",
-    fontSize: "var(--font-size-xs)",
+    fontSize: "var(--font-size-lg)",
     fontWeight: "var(--font-weight-medium)",
     lineHeight: "var(--line-height-normal)",
   },
 
   caption: {
     fontFamily: "var(--font-family-mono)",
-    fontSize: "var(--font-size-sm)",
+    fontSize: "var(--font-size-xs)",
     fontWeight: "var(--font-weight-medium)",
     lineHeight: "var(--line-height-tight)",
   },

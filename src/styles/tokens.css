@@ -46,7 +46,9 @@
   --color-background: #F5F3EF;
   --color-foreground: #1A1A24;
   --color-card: #FDFCFA;
+  --color-muted: #EDEAE4;
   --color-primary: #1C2B4A;
+  --color-primary-foreground: #FFFFFF;
 
   --spacing-xs: 4px;
   --spacing-sm: 8px;
@@ -59,22 +61,21 @@
   --spacing-5xl: 80px;
   --spacing-6xl: 96px;
 
-  --radius-xs: 2px;
-  --radius-sm: 4px;
-  --radius-md: 6px;
+  --radius-sm: 6px;
   --radius-lg: 8px;
-  --radius-xl: 12px;
-  --radius-full: 9999px;
 
   --font-family-serif: "Libre Baskerville", Georgia, serif;
   --font-family-sans: "Inter", system-ui, sans-serif;
   --font-family-mono: "JetBrains Mono", "Courier New", monospace;
 
-  --font-size-xs: 0.75rem;
-  --font-size-sm: 0.875rem;
-  --font-size-md: 1rem;
-  --font-size-lg: 1.125rem;
-  --font-size-xl: 1.25rem;
+  --font-size-xs: 0.7rem;
+  --font-size-sm: 0.75rem;
+  --font-size-md: 0.875rem;
+  --font-size-lg: 1rem;
+  --font-size-xl: 1.125rem;
+  --font-size-2xl: 1.25rem;
+  --font-size-3xl: 1.5rem;
+  --font-size-4xl: 1.875rem;
 
   --font-weight-regular: 400;
   --font-weight-medium: 500;
