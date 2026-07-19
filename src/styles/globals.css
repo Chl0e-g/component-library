@@ -23,4 +23,5 @@ input,
 select,
 textarea {
   font: inherit;
+  color: var(--color-foreground);
 }

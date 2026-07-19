@@ -55,6 +55,10 @@
   --color-secondary-hover: #F5F3EF;
   --color-secondary-active: #C4C0B8;
   --color-secondary-foreground: #2E2C2A;
+  --color-tertiary: #F5F3EF;
+  --color-tertiary-hover: #FDFCFA;
+  --color-tertiary-active: #EDEAE4;
+  --color-tertiary-border: #C4C0B8;
 
   --spacing-xs: 4px;
   --spacing-sm: 8px;

@@ -74,6 +74,11 @@ export const semantic = {
   "secondary-hover": neutral["neutral-20"],
   "secondary-active": neutral["neutral-50"],
   "secondary-foreground": neutral["neutral-90"],
+
+  tertiary: neutral["neutral-20"],
+  "tertiary-hover": neutral["neutral-10"],
+  "tertiary-active": neutral["neutral-30"],
+  "tertiary-border": neutral["neutral-50"],
 };
 
 export const colors = {

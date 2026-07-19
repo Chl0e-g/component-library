@@ -12,7 +12,7 @@ const meta = {
   },
   argTypes: {
     size: { control: "select", options: ["sm", "md", "lg"] },
-    variant: { control: "select", options: ["primary", "secondary"] },
+    variant: { control: "select", options: ["primary", "secondary", "tertiary"] },
     type: { control: "select", options: ["button", "submit"] },
   },
 } satisfies Meta<typeof Button>;
@@ -32,6 +32,14 @@ export const Primary: Story = {
 export const Secondary: Story = {
   args: {
     variant: "secondary",
+    size: "md",
+    children: "Button",
+  },
+};
+
+export const Tertiary: Story = {
+  args: {
+    variant: "tertiary",
     size: "md",
     children: "Button",
   },

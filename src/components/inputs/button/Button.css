@@ -48,3 +48,16 @@
     border-color: var(--color-secondary-active);
   }
 }
+
+.variant-tertiary {
+  background-color: var(--color-tertiary);
+  border-color: var(--color-tertiary-border);
+
+  &:hover {
+    background-color: var(--color-tertiary-hover);
+  }
+
+  &:active {
+    background-color: var(--color-tertiary-active);
+  }
+}
