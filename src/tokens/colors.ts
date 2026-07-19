@@ -79,6 +79,11 @@ export const semantic = {
   "tertiary-hover": neutral["neutral-10"],
   "tertiary-active": neutral["neutral-30"],
   "tertiary-border": neutral["neutral-50"],
+
+  destructive: danger["danger-70"],
+  "destructive-hover": danger["danger-60"],
+  "destructive-active": danger["danger-80"],
+  "destructive-foreground": neutral["neutral-10"],
 };
 
 export const colors = {

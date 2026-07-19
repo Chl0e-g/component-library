@@ -61,3 +61,19 @@
     background-color: var(--color-tertiary-active);
   }
 }
+
+.variant-destructive {
+  background-color: var(--color-destructive);
+  border-color: var(--color-destructive);
+  color: var(--color-destructive-foreground);
+
+  &:hover {
+    background-color: var(--color-destructive-hover);
+    border-color: var(--color-destructive-hover);
+  }
+
+  &:active {
+    background-color: var(--color-destructive-active);
+    border-color: var(--color-destructive-active);
+  }
+}

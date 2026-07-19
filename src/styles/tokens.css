@@ -59,6 +59,10 @@
   --color-tertiary-hover: #FDFCFA;
   --color-tertiary-active: #EDEAE4;
   --color-tertiary-border: #C4C0B8;
+  --color-destructive: #B91C1C;
+  --color-destructive-hover: #DC2626;
+  --color-destructive-active: #7F1D1D;
+  --color-destructive-foreground: #FDFCFA;
 
   --spacing-xs: 4px;
   --spacing-sm: 8px;
