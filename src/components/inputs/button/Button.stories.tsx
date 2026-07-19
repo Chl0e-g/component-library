@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { expect, fn, userEvent, within } from "storybook/test";
+import { expect, fireEvent, fn, userEvent, within } from "storybook/test";
 
 import { Button } from "./Button.tsx";
 
@@ -62,6 +62,20 @@ export const Small: Story = {
 
 export const Large: Story = {
   args: { size: "lg", children: "Large button" },
+};
+
+export const Disabled: Story = {
+  args: { children: "Disabled button", disabled: true },
+  play: async ({ args, canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = canvas.getByRole("button", { name: "Disabled button" });
+
+    await expect(button).toBeDisabled();
+
+    await fireEvent.click(button);
+
+    await expect(args.onClick).not.toHaveBeenCalled();
+  },
 };
 
 export const ClickInteraction: Story = {

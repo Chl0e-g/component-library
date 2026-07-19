@@ -15,6 +15,11 @@
     outline: 2px solid var(--color-primary);
     outline-offset: 2px;
   }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 }
 
 .variant-primary {
@@ -22,12 +27,12 @@
   border-color: var(--color-primary);
   color: var(--color-primary-foreground);
 
-  &:hover {
+  &:not(:disabled):hover {
     background-color: var(--color-primary-hover);
     border-color: var(--color-primary-hover);
   }
 
-  &:active {
+  &:not(:disabled):active {
     background-color: var(--color-primary-active);
     border-color: var(--color-primary-active);
   }
@@ -38,12 +43,12 @@
   border-color: transparent;
   color: var(--color-secondary-foreground);
 
-  &:hover {
+  &:not(:disabled):hover {
     background-color: var(--color-secondary-hover);
     border-color: var(--color-secondary);
   }
 
-  &:active {
+  &:not(:disabled):active {
     background-color: var(--color-secondary-active);
     border-color: var(--color-secondary-active);
   }
@@ -53,11 +58,11 @@
   background-color: var(--color-tertiary);
   border-color: var(--color-tertiary-border);
 
-  &:hover {
+  &:not(:disabled):hover {
     background-color: var(--color-tertiary-hover);
   }
 
-  &:active {
+  &:not(:disabled):active {
     background-color: var(--color-tertiary-active);
   }
 }
@@ -67,12 +72,12 @@
   border-color: var(--color-destructive);
   color: var(--color-destructive-foreground);
 
-  &:hover {
+  &:not(:disabled):hover {
     background-color: var(--color-destructive-hover);
     border-color: var(--color-destructive-hover);
   }
 
-  &:active {
+  &:not(:disabled):active {
     background-color: var(--color-destructive-active);
     border-color: var(--color-destructive-active);
   }

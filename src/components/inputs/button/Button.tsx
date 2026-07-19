@@ -14,6 +14,7 @@ export interface TButtonProps {
   size?: TButtonSize;
   variant?: TButtonVariant;
   type?: TButtonType;
+  disabled?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   ariaLabel?: string;
   children: ReactNode;
@@ -48,6 +49,7 @@ export const Button = ({
   size = "md",
   variant = "primary",
   type = "button",
+  disabled,
   onClick,
   ariaLabel,
   children,
@@ -63,6 +65,7 @@ export const Button = ({
     <button
       ref={ref}
       type={type}
+      disabled={disabled}
       className={`button variant-${variant}`}
       style={style}
       onClick={onClick}
