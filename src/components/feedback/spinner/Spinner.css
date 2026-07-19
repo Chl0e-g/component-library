@@ -1,0 +1,37 @@
+.spinner {
+  position: relative;
+  display: inline-block;
+  width: var(--spinner-size, 1em);
+  height: var(--spinner-size, 1em);
+}
+
+.spinner::before,
+.spinner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid transparent;
+  border-radius: 50%;
+}
+
+.spinner::before {
+  border-color: currentColor;
+  opacity: 0.25;
+}
+
+.spinner::after {
+  border-top-color: currentColor;
+  animation: spinner-rotate 1s linear infinite;
+}
+
+@keyframes spinner-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner::after {
+    animation-duration: 1.5s;
+  }
+}
