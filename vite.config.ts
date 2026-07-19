@@ -14,26 +14,30 @@ const dirname =
     : path.dirname(fileURLToPath(import.meta.url));
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
-    dts({
-      include: ["src"],
-      exclude: ["src/**/*.stories.tsx", "src/**/*.test.tsx"],
-      tsconfigPath: "./tsconfig.app.json",
-      bundleTypes: true,
-    }),
-  ],
-  build: {
-    lib: {
-      entry: path.resolve(dirname, "src/index.ts"),
-      formats: ["es"],
-      fileName: "index",
-    },
-    rollupOptions: {
-      external: ["react", "react-dom", "react/jsx-runtime"],
-    },
-  },
+    mode === "lib" &&
+      dts({
+        include: ["src"],
+        exclude: ["src/**/*.stories.tsx", "src/**/*.test.tsx"],
+        tsconfigPath: "./tsconfig.app.json",
+        bundleTypes: true,
+      }),
+  ].filter(Boolean),
+  build:
+    mode === "lib"
+      ? {
+          lib: {
+            entry: path.resolve(dirname, "src/index.ts"),
+            formats: ["es"],
+            fileName: "index",
+          },
+          rollupOptions: {
+            external: ["react", "react-dom", "react/jsx-runtime"],
+          },
+        }
+      : undefined,
   test: {
     projects: [
       {
@@ -61,4 +65,4 @@ export default defineConfig({
       },
     ],
   },
-});
+}));
