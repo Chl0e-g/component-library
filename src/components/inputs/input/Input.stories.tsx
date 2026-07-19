@@ -76,6 +76,20 @@ export const WithError: Story = {
   },
 };
 
+export const Required: Story = {
+  args: {
+    label: "Email address",
+    placeholder: "you@example.com",
+    required: true,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const input = canvas.getByLabelText("Email address *");
+    await expect(input).toBeRequired();
+  },
+};
+
 export const WithHelperTextAndError: Story = {
   args: {
     label: "Email address",

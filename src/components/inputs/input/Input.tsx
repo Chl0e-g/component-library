@@ -55,6 +55,12 @@ export const Input = ({
     <Flex direction="column" gap="sm">
       <Text as="label" variant="overline" htmlFor={id}>
         {label}
+        {required && (
+          <span aria-hidden="true">
+            {" "}
+            *
+          </span>
+        )}
       </Text>
       <input
         ref={ref}
