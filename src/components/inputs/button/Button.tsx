@@ -11,7 +11,7 @@ import "./Button.css";
 export type TButtonSize = "sm" | "md" | "lg";
 
 export type TButtonVariant =
-  "primary" | "secondary" | "tertiary" | "destructive";
+  "primary" | "secondary" | "tertiary" | "ghost" | "destructive";
 
 export type TButtonType = "button" | "submit";
 

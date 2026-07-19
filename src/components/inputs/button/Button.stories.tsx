@@ -9,6 +9,7 @@ const variants: TButtonVariant[] = [
   "primary",
   "secondary",
   "tertiary",
+  "ghost",
   "destructive",
 ];
 
@@ -28,7 +29,7 @@ const meta = {
     size: { control: "select", options: ["sm", "md", "lg"] },
     variant: {
       control: "select",
-      options: ["primary", "secondary", "tertiary", "destructive"],
+      options: ["primary", "secondary", "tertiary", "ghost", "destructive"],
     },
     type: { control: "select", options: ["button", "submit"] },
   },

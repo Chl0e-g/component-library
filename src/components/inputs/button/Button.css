@@ -84,6 +84,19 @@
   }
 }
 
+.variant-ghost {
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--color-foreground);
+
+  &:not(:disabled):hover {
+    color: var(--color-neutral-70);
+  }
+  &:not(:disabled):active {
+    color: var(--color-neutral-90);
+  }
+}
+
 .variant-destructive {
   background-color: var(--color-destructive);
   border-color: var(--color-destructive);
