@@ -21,6 +21,7 @@ export interface TFlexProps {
   justify?: TFlexJustify;
   /** Element to render as. Use "span" if required for nesting e.g. inside a button. Defaults to "div". */
   as?: TFlexAs;
+  className?: string;
   children: ReactNode;
 }
 
@@ -52,6 +53,7 @@ export const Flex = ({
   align,
   justify,
   as = "div",
+  className,
   children,
 }: TFlexProps) => {
   const Component = as;
@@ -65,7 +67,10 @@ export const Flex = ({
   };
 
   return (
-    <Component className="flex" style={style}>
+    <Component
+      className={className ? `flex ${className}` : "flex"}
+      style={style}
+    >
       {children}
     </Component>
   );
