@@ -12,15 +12,20 @@ export type TFlexAlign = "start" | "center" | "end" | "stretch";
 
 export type TFlexJustify = "start" | "center" | "end" | "between";
 
+export type TFlexAs = "div" | "span";
+
 export interface TFlexProps {
   direction?: TFlexDirection;
   gap?: TFlexGap;
   align?: TFlexAlign;
   justify?: TFlexJustify;
+  /** Element to render as. Use "span" if required for nesting e.g. inside a button. Defaults to "div". */
+  as?: TFlexAs;
   children: ReactNode;
 }
 
 type TFlexStyle = CSSProperties & {
+  "--flex-display"?: string;
   "--flex-direction"?: string;
   "--flex-gap"?: string;
   "--flex-align"?: string;
@@ -46,9 +51,13 @@ export const Flex = ({
   gap,
   align,
   justify,
+  as = "div",
   children,
 }: TFlexProps) => {
+  const Component = as;
+
   const style: TFlexStyle = {
+    "--flex-display": as === "span" ? "inline-flex" : "flex",
     "--flex-direction": direction,
     "--flex-gap": gap && `var(--spacing-${gap})`,
     "--flex-align": align && alignItems[align],
@@ -56,8 +65,8 @@ export const Flex = ({
   };
 
   return (
-    <div className="flex" style={style}>
+    <Component className="flex" style={style}>
       {children}
-    </div>
+    </Component>
   );
 };

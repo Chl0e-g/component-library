@@ -1,5 +1,5 @@
 .flex {
-  display: flex;
+  display: var(--flex-display, flex);
   flex-direction: var(--flex-direction, row);
   gap: var(--flex-gap, 0);
   align-items: var(--flex-align, normal);
