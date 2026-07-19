@@ -11,6 +11,10 @@
   --toast-accent: var(--color-success-50);
 }
 
+.variant-warning {
+  --toast-accent: var(--color-warning-50);
+}
+
 .toast-title {
   line-height: var(--line-height-none);
   font-weight: var(--font-weight-medium);
