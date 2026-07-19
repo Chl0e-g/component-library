@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 
 import type { TRadiusToken, TSpacingToken } from "../../../tokens/types.ts";
 
@@ -15,19 +15,25 @@ export interface TBoxProps {
   children: ReactNode;
 }
 
+type TBoxStyle = CSSProperties & {
+  "--box-padding"?: string;
+  "--box-radius"?: string;
+};
+
 export const Box = ({
   padding = "sm",
   radius = "sm",
   variant = "card",
   children,
 }: TBoxProps) => {
-  const className = [
-    padding && `p-${padding}`,
-    radius && `radius-${radius}`,
-    variant && `variant-${variant}`,
-  ]
-    .filter((token): token is string => Boolean(token))
-    .join(" ");
+  const style: TBoxStyle = {
+    "--box-padding": `var(--spacing-${padding})`,
+    "--box-radius": `var(--radius-${radius})`,
+  };
 
-  return <div className={className || undefined}>{children}</div>;
+  return (
+    <div className={`box variant-${variant}`} style={style}>
+      {children}
+    </div>
+  );
 };

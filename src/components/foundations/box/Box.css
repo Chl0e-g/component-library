@@ -1,17 +1,6 @@
-.p-sm {
-  padding: var(--spacing-sm);
-}
-
-.p-md {
-  padding: var(--spacing-md);
-}
-
-.radius-sm {
-  border-radius: var(--radius-sm);
-}
-
-.radius-lg {
-  border-radius: var(--radius-lg);
+.box {
+  padding: var(--box-padding, 0);
+  border-radius: var(--box-radius, 0);
 }
 
 .variant-card {
