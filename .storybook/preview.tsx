@@ -1,4 +1,5 @@
 import type { Preview } from "@storybook/react-vite";
+import { create } from "storybook/theming";
 import "../src/styles/index.css";
 
 const preview: Preview = {
@@ -15,6 +16,17 @@ const preview: Preview = {
       // 'error' - fail CI on a11y violations
       // 'off' - skip a11y checks entirely
       test: "todo",
+    },
+
+    backgrounds: {
+      disable: true,
+    },
+
+    docs: {
+      theme: create({
+        base: "light",
+        appContentBg: "var(--color-background)",
+      }),
     },
   },
 };
