@@ -24,5 +24,5 @@ export type { TSpinnerProps } from "./components/feedback/spinner/Spinner.tsx";
 export { Input } from "./components/inputs/input/Input.tsx";
 export type { TInputProps, TInputType } from "./components/inputs/input/Input.tsx";
 
-export { Toast } from "./components/feedback/toast/Toast.tsx";
+export { useToast } from "./components/feedback/toast/useToast.tsx";
 export type { TToastProps } from "./components/feedback/toast/Toast.tsx";

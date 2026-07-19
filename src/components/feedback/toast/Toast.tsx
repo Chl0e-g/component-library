@@ -1,9 +1,11 @@
-import { Info } from "lucide-react";
+import { useState } from "react";
+import { Info, X } from "lucide-react";
 
 import { Box } from "../../foundations/box/Box.tsx";
 import { Flex } from "../../foundations/flex/Flex.tsx";
 import { Icon } from "../../foundations/icon/Icon.tsx";
 import { Text } from "../../foundations/text/Text.tsx";
+import { Button } from "../../inputs/button/Button.tsx";
 
 import "./Toast.css";
 
@@ -13,23 +15,42 @@ export interface TToastProps {
 }
 
 export const Toast = ({ title, message }: TToastProps) => {
+  const [dismissed, setDismissed] = useState(false);
+
+  if (dismissed) {
+    return null;
+  }
+
   return (
     <div className="toast" role="status" aria-live="polite">
       <Box padding="md">
-        <Flex gap="sm" align="start">
-          <span className="toast-icon">
-            <Icon icon={Info} size="md" />
-          </span>
-          <Flex direction="column" gap="sm">
-            <Text variant="body" as="span" className={"toast-title"}>
-              {title}
-            </Text>
-            {message && (
-              <Text variant="caption" as="span">
-                {message}
+        <Flex gap="sm" align="start" justify="between">
+          <Flex gap="sm" align="start">
+            <span className="toast-icon">
+              <Icon icon={Info} size="md" />
+            </span>
+            <Flex direction="column" gap="sm">
+              <Text variant="body" as="span" className="toast-title">
+                {title}
               </Text>
-            )}
+              {message && (
+                <Text variant="caption" as="span">
+                  {message}
+                </Text>
+              )}
+            </Flex>
           </Flex>
+          <div className="dismiss-button-wrapper">
+            <Button
+              variant="ghost"
+              size="sm"
+              leftIcon={X}
+              ariaLabel="Dismiss"
+              onClick={() => {
+                setDismissed(true);
+              }}
+            />
+          </div>
         </Flex>
       </Box>
       <span className="toast-accent" />

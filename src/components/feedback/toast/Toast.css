@@ -1,6 +1,6 @@
 .toast {
   position: relative;
-  max-width: calc(4 * var(--spacing-6xl));
+  max-width: calc(4 * var(--spacing-5xl));
 }
 
 .toast-title {
@@ -21,4 +21,10 @@
 .toast-icon {
   display: inline-flex;
   color: var(--color-primary);
+}
+
+.dismiss-button-wrapper {
+  position: absolute;
+  right: var(--spacing-xs);
+  top: var(--spacing-sm);
 }
