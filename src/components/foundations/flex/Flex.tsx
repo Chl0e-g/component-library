@@ -1,0 +1,63 @@
+import type { CSSProperties, ReactNode } from "react";
+
+import type { TSpacingToken } from "../../../tokens/types.ts";
+
+import "./Flex.css";
+
+export type TFlexGap = Extract<TSpacingToken, "xs" | "sm" | "md" | "lg">;
+
+export type TFlexDirection = "row" | "column";
+
+export type TFlexAlign = "start" | "center" | "end" | "stretch";
+
+export type TFlexJustify = "start" | "center" | "end" | "between";
+
+export interface TFlexProps {
+  direction?: TFlexDirection;
+  gap?: TFlexGap;
+  align?: TFlexAlign;
+  justify?: TFlexJustify;
+  children: ReactNode;
+}
+
+type TFlexStyle = CSSProperties & {
+  "--flex-direction"?: string;
+  "--flex-gap"?: string;
+  "--flex-align"?: string;
+  "--flex-justify"?: string;
+};
+
+const alignItems: Record<TFlexAlign, string> = {
+  start: "flex-start",
+  center: "center",
+  end: "flex-end",
+  stretch: "stretch",
+};
+
+const justifyContent: Record<TFlexJustify, string> = {
+  start: "flex-start",
+  center: "center",
+  end: "flex-end",
+  between: "space-between",
+};
+
+export const Flex = ({
+  direction = "row",
+  gap,
+  align,
+  justify,
+  children,
+}: TFlexProps) => {
+  const style: TFlexStyle = {
+    "--flex-direction": direction,
+    "--flex-gap": gap && `var(--spacing-${gap})`,
+    "--flex-align": align && alignItems[align],
+    "--flex-justify": justify && justifyContent[justify],
+  };
+
+  return (
+    <div className="flex" style={style}>
+      {children}
+    </div>
+  );
+};

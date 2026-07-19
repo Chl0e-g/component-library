@@ -1,0 +1,7 @@
+.flex {
+  display: flex;
+  flex-direction: var(--flex-direction, row);
+  gap: var(--flex-gap, 0);
+  align-items: var(--flex-align, normal);
+  justify-content: var(--flex-justify, normal);
+}
