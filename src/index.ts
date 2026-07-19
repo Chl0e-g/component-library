@@ -6,3 +6,11 @@ export type { TBoxProps } from "./components/foundations/box/Box.tsx";
 
 export { Flex } from "./components/foundations/flex/Flex.tsx";
 export type { TFlexProps } from "./components/foundations/flex/Flex.tsx";
+
+export { Button } from "./components/inputs/button/Button.tsx";
+export type {
+  TButtonProps,
+  TButtonSize,
+  TButtonVariant,
+  TButtonType,
+} from "./components/inputs/button/Button.tsx";

@@ -17,3 +17,10 @@ body {
 *::after {
   box-sizing: border-box;
 }
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}

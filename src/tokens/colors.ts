@@ -66,6 +66,8 @@ export const semantic = {
 
   // Brand
   primary: primary["primary-90"],
+  "primary-hover": primary["primary-80"],
+  "primary-active": primary["primary-100"],
   "primary-foreground": neutral["neutral-10"],
 };
 

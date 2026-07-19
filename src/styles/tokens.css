@@ -48,7 +48,9 @@
   --color-card: #FDFCFA;
   --color-muted: #EDEAE4;
   --color-primary: #1C2B4A;
-  --color-primary-foreground: #FFFFFF;
+  --color-primary-hover: #243F68;
+  --color-primary-active: #111A2D;
+  --color-primary-foreground: #FDFCFA;
 
   --spacing-xs: 4px;
   --spacing-sm: 8px;
