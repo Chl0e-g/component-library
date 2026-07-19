@@ -20,3 +20,6 @@ export type {
 
 export { Spinner } from "./components/feedback/spinner/Spinner.tsx";
 export type { TSpinnerProps } from "./components/feedback/spinner/Spinner.tsx";
+
+export { Input } from "./components/inputs/input/Input.tsx";
+export type { TInputProps, TInputType } from "./components/inputs/input/Input.tsx";
