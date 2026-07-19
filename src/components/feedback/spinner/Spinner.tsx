@@ -4,20 +4,22 @@ import type { TFontSizeToken } from "../../../tokens/types.ts";
 
 import "./Spinner.css";
 
-export type TSpinnerSize = Extract<TFontSizeToken, "sm" | "md" | "lg">;
-
 export interface TSpinnerProps {
-  size?: TSpinnerSize;
+  /** Explicit size for standalone use. Omit to inherit the surrounding font-size (e.g. inside Button). */
+  size?: TFontSizeToken;
 }
 
-type TSpinnerStyle = CSSProperties & {
-  "--spinner-size"?: string;
-};
+export const Spinner = ({ size }: TSpinnerProps = {}) => {
+  const style: CSSProperties | undefined = size
+    ? { fontSize: `var(--font-size-${size})` }
+    : undefined;
 
-export const Spinner = ({ size = "md" }: TSpinnerProps) => {
-  const style: TSpinnerStyle = {
-    "--spinner-size": `var(--font-size-${size})`,
-  };
-
-  return <span className="spinner" style={style} role="status" aria-label="Loading" />;
+  return (
+    <span
+      className="spinner"
+      style={style}
+      role="status"
+      aria-label="Loading"
+    />
+  );
 };

@@ -1,8 +1,8 @@
 .spinner {
   position: relative;
   display: inline-block;
-  width: var(--spinner-size, 1em);
-  height: var(--spinner-size, 1em);
+  width: 1em;
+  height: 1em;
 }
 
 .spinner::before,

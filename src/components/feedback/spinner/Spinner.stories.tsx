@@ -3,9 +3,9 @@ import { expect, within } from "storybook/test";
 
 import { Flex } from "../../foundations/flex/Flex.tsx";
 import { Spinner } from "./Spinner.tsx";
-import type { TSpinnerSize } from "./Spinner.tsx";
+import type { TFontSizeToken } from "../../../tokens/types.ts";
 
-const sizes: TSpinnerSize[] = ["sm", "md", "lg"];
+const sizes: TFontSizeToken[] = ["xs", "sm", "md", "lg", "2xl", "3xl", "4xl"];
 
 const meta = {
   title: "Feedback/Spinner",
@@ -38,5 +38,20 @@ export const Sizes: Story = {
     for (const status of statuses) {
       await expect(status).toHaveAccessibleName("Loading");
     }
+  },
+};
+
+export const InheritsFromContext: Story = {
+  name: "Inherits size (no size prop)",
+  args: {},
+  render: () => (
+    <div style={{ fontSize: "var(--font-size-3xl)" }}>
+      <Spinner />
+    </div>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await expect(canvas.getByRole("status")).toHaveAccessibleName("Loading");
   },
 };
