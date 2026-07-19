@@ -3,9 +3,14 @@
   max-width: calc(4 * var(--spacing-5xl));
 }
 
+.variant-info {
+  --toast-accent: var(--color-primary);
+}
+
 .toast-title {
   line-height: var(--line-height-none);
   font-weight: var(--font-weight-medium);
+  color: var(--toast-accent);
 }
 
 .toast-accent {
@@ -15,12 +20,12 @@
   width: var(--spacing-sm);
   z-index: -1;
   border-radius: var(--radius-sm) 0 0 var(--radius-sm);
-  background-color: var(--color-primary);
+  background-color: var(--toast-accent);
 }
 
 .toast-icon {
   display: inline-flex;
-  color: var(--color-primary);
+  color: var(--toast-accent);
 }
 
 .dismiss-button-wrapper {

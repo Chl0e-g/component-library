@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Info, X } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 import { Box } from "../../foundations/box/Box.tsx";
 import { Flex } from "../../foundations/flex/Flex.tsx";
@@ -9,12 +10,23 @@ import { Button } from "../../inputs/button/Button.tsx";
 
 import "./Toast.css";
 
+export type TToastVariant = "info";
+
 export interface TToastProps {
   title: string;
   message?: string;
+  variant?: TToastVariant;
 }
 
-export const Toast = ({ title, message }: TToastProps) => {
+const iconByVariant: Record<TToastVariant, LucideIcon> = {
+  info: Info,
+};
+
+export const Toast = ({
+  title,
+  message,
+  variant = "info",
+}: TToastProps) => {
   const [dismissed, setDismissed] = useState(false);
 
   if (dismissed) {
@@ -22,12 +34,12 @@ export const Toast = ({ title, message }: TToastProps) => {
   }
 
   return (
-    <div className="toast" role="status" aria-live="polite">
+    <div className={`toast variant-${variant}`} role="status" aria-live="polite">
       <Box padding="md">
         <Flex gap="sm" align="start" justify="between">
           <Flex gap="sm" align="start">
             <span className="toast-icon">
-              <Icon icon={Info} size="md" />
+              <Icon icon={iconByVariant[variant]} size="md" />
             </span>
             <Flex direction="column" gap="sm">
               <Text variant="body" as="span" className="toast-title">

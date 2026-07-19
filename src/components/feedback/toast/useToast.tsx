@@ -18,8 +18,8 @@ export const useToast = () => {
     ]);
   }, []);
 
-  const elements = toasts.map(({ id, title, message }) => (
-    <Toast key={id} title={title} message={message} />
+  const elements = toasts.map(({ id, title, message, variant }) => (
+    <Toast key={id} title={title} message={message} variant={variant} />
   ));
 
   return { toasts: elements, show };
