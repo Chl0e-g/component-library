@@ -4,7 +4,6 @@ import type { TTextVariant } from "../../../tokens/types.ts";
 
 export interface TTextProps {
   variant?: TTextVariant;
-  as?: ElementType;
   children: ReactNode;
 }
 
@@ -21,8 +20,8 @@ const defaultElement: Record<TTextVariant, ElementType> = {
   mono: "span",
 };
 
-export const Text = ({ variant = "body", as, children }: TTextProps) => {
-  const Component = as ?? defaultElement[variant];
+export const Text = ({ variant = "body", children }: TTextProps) => {
+  const Component = defaultElement[variant];
 
   return <Component className={`text-${variant}`}>{children}</Component>;
 };

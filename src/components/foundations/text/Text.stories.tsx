@@ -77,22 +77,3 @@ export const Mono: Story = {
     children: "npm run build",
   },
 };
-
-export const AsSpanInsideButton: Story = {
-  name: "Rendered as a span (e.g. inside a button)",
-  args: { children: "Submit" },
-  render: () => (
-    <button type="button">
-      <Text variant="body" as="span">
-        Submit
-      </Text>
-    </button>
-  ),
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    const button = canvas.getByRole("button", { name: "Submit" });
-
-    await expect(button.querySelector("span")).not.toBeNull();
-    await expect(button.querySelector("p")).toBeNull();
-  },
-};
