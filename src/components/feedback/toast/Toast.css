@@ -1,0 +1,24 @@
+.toast {
+  position: relative;
+  max-width: calc(4 * var(--spacing-6xl));
+}
+
+.toast-title {
+  line-height: var(--line-height-none);
+  font-weight: var(--font-weight-medium);
+}
+
+.toast-accent {
+  position: absolute;
+  inset-block: 0;
+  left: calc(-1 * var(--spacing-xs));
+  width: var(--spacing-sm);
+  z-index: -1;
+  border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+  background-color: var(--color-primary);
+}
+
+.toast-icon {
+  display: inline-flex;
+  color: var(--color-primary);
+}

@@ -23,6 +23,7 @@ export const fontWeight = {
 };
 
 export const lineHeight = {
+  none: 1,
   tight: 1.2,
   normal: 1.5,
   relaxed: 1.75,
