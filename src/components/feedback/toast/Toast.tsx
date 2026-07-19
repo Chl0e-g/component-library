@@ -56,7 +56,7 @@ export const Toast = ({
                 {title}
               </Text>
               {message && (
-                <Text variant="caption" as="span">
+                <Text variant="caption" as="span" className="toast-message">
                   {message}
                 </Text>
               )}
