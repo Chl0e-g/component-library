@@ -66,7 +66,7 @@ export const semantic = {
 
   // Brand
   primary: primary["primary-90"],
-  "primary-foreground": "#FFFFFF",
+  "primary-foreground": neutral["neutral-10"],
 };
 
 export const colors = {
