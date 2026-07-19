@@ -28,7 +28,7 @@ type TButtonStyle = CSSProperties & {
 
 const paddingBlockBySize: Record<TButtonSize, TSpacingToken> = {
   sm: "xs",
-  md: "sm",
+  md: "xs",
   lg: "sm",
 };
 
