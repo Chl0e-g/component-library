@@ -6,7 +6,7 @@ import "./Button.css";
 
 export type TButtonSize = "sm" | "md" | "lg";
 
-export type TButtonVariant = "primary";
+export type TButtonVariant = "primary" | "secondary";
 
 export type TButtonType = "button" | "submit";
 

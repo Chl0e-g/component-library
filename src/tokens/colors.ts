@@ -69,6 +69,11 @@ export const semantic = {
   "primary-hover": primary["primary-80"],
   "primary-active": primary["primary-100"],
   "primary-foreground": neutral["neutral-10"],
+
+  secondary: neutral["neutral-40"],
+  "secondary-hover": neutral["neutral-20"],
+  "secondary-active": neutral["neutral-50"],
+  "secondary-foreground": neutral["neutral-90"],
 };
 
 export const colors = {

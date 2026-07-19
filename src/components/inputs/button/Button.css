@@ -4,7 +4,7 @@
   font-size: var(--button-font-size, inherit);
   font-weight: var(--font-weight-medium);
   border-radius: var(--radius-sm);
-  border: none;
+  border: 1px solid transparent;
   cursor: pointer;
   transition:
     background-color 0.15s ease,
@@ -30,5 +30,21 @@
   &:active {
     background-color: var(--color-primary-active);
     border-color: var(--color-primary-active);
+  }
+}
+
+.variant-secondary {
+  background-color: var(--color-secondary);
+  border-color: transparent;
+  color: var(--color-secondary-foreground);
+
+  &:hover {
+    background-color: var(--color-secondary-hover);
+    border-color: var(--color-secondary);
+  }
+
+  &:active {
+    background-color: var(--color-secondary-active);
+    border-color: var(--color-secondary-active);
   }
 }

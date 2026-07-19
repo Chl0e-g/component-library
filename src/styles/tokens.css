@@ -51,6 +51,10 @@
   --color-primary-hover: #243F68;
   --color-primary-active: #111A2D;
   --color-primary-foreground: #FDFCFA;
+  --color-secondary: #E3DFD8;
+  --color-secondary-hover: #F5F3EF;
+  --color-secondary-active: #C4C0B8;
+  --color-secondary-foreground: #2E2C2A;
 
   --spacing-xs: 4px;
   --spacing-sm: 8px;
