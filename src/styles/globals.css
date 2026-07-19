@@ -9,7 +9,6 @@ body {
 
   font-family: var(--font-family-sans);
   font-size: var(--font-size-md);
-  line-height: var(--line-height-normal);
 }
 
 *,
@@ -23,5 +22,6 @@ input,
 select,
 textarea {
   font: inherit;
+  line-height: var(--line-height-normal);
   color: var(--color-foreground);
 }

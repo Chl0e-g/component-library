@@ -85,7 +85,7 @@ export const textStyles = {
   },
 
   caption: {
-    fontFamily: "var(--font-family-mono)",
+    fontFamily: "var(--font-family-sans)",
     fontSize: "var(--font-size-xs)",
     fontWeight: "var(--font-weight-medium)",
     lineHeight: "var(--line-height-tight)",
