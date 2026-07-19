@@ -1,4 +1,5 @@
 .button {
+  position: relative;
   padding-block: var(--button-padding-block, 0);
   padding-inline: var(--button-padding-inline, 0);
   font-size: var(--button-font-size, inherit);
@@ -20,6 +21,22 @@
     opacity: 0.5;
     cursor: not-allowed;
   }
+
+  &.loading:disabled {
+    opacity: 1;
+  }
+}
+
+.button-label-hidden {
+  opacity: 0;
+}
+
+.button-spinner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .variant-primary {

@@ -62,6 +62,9 @@ export const AllVariants: Story = {
           <th scope="col" style={cellStyle}>
             Disabled
           </th>
+          <th scope="col" style={cellStyle}>
+            Loading
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -92,6 +95,16 @@ export const AllVariants: Story = {
                 Button
               </Button>
             </td>
+            <td style={cellStyle}>
+              <Button
+                variant={variant}
+                loading
+                ariaLabel={`${variant} loading`}
+                onClick={args.onClick}
+              >
+                Button
+              </Button>
+            </td>
           </tr>
         ))}
       </tbody>
@@ -103,6 +116,12 @@ export const AllVariants: Story = {
     const disabledButton = canvas.getByRole("button", { name: "primary disabled" });
     await expect(disabledButton).toBeDisabled();
     await fireEvent.click(disabledButton);
+    await expect(args.onClick).not.toHaveBeenCalled();
+
+    const loadingButton = canvas.getByRole("button", { name: "primary loading" });
+    await expect(loadingButton).toBeDisabled();
+    await expect(loadingButton).toHaveAttribute("aria-busy", "true");
+    await fireEvent.click(loadingButton);
     await expect(args.onClick).not.toHaveBeenCalled();
 
     const enabledButton = canvas.getByRole("button", { name: "primary md" });

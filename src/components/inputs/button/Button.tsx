@@ -1,12 +1,14 @@
 import type { CSSProperties, MouseEventHandler, ReactNode, Ref } from "react";
 
 import type { TSpacingToken } from "../../../tokens/types.ts";
+import { Spinner } from "../../feedback/spinner/Spinner.tsx";
 
 import "./Button.css";
 
 export type TButtonSize = "sm" | "md" | "lg";
 
-export type TButtonVariant = "primary" | "secondary" | "tertiary" | "destructive";
+export type TButtonVariant =
+  "primary" | "secondary" | "tertiary" | "destructive";
 
 export type TButtonType = "button" | "submit";
 
@@ -15,6 +17,7 @@ export interface TButtonProps {
   variant?: TButtonVariant;
   type?: TButtonType;
   disabled?: boolean;
+  loading?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   ariaLabel?: string;
   children: ReactNode;
@@ -50,6 +53,7 @@ export const Button = ({
   variant = "primary",
   type = "button",
   disabled,
+  loading,
   onClick,
   ariaLabel,
   children,
@@ -65,13 +69,25 @@ export const Button = ({
     <button
       ref={ref}
       type={type}
-      disabled={disabled}
-      className={`button variant-${variant}`}
+      disabled={disabled || loading}
+      aria-busy={loading}
+      className={`button variant-${variant}${loading ? " loading" : ""}`}
       style={style}
       onClick={onClick}
       aria-label={ariaLabel}
     >
-      {children}
+      {loading && (
+        <span className="button-spinner">
+          <Spinner size={size} />
+        </span>
+      )}
+      <span
+        className={
+          loading ? "button-label button-label-hidden" : "button-label"
+        }
+      >
+        {children}
+      </span>
     </button>
   );
 };
