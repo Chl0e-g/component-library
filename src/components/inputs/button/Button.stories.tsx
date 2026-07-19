@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { expect, fireEvent, fn, userEvent, within } from "storybook/test";
+import { ArrowRight, Download, ThumbsUp } from "lucide-react";
 
 import { Button } from "./Button.tsx";
 import type { TButtonSize, TButtonVariant } from "./Button.tsx";
@@ -65,6 +66,15 @@ export const AllVariants: Story = {
           <th scope="col" style={cellStyle}>
             Loading
           </th>
+          <th scope="col" style={cellStyle}>
+            Left icon
+          </th>
+          <th scope="col" style={cellStyle}>
+            Right icon
+          </th>
+          <th scope="col" style={cellStyle}>
+            Icon only
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -105,6 +115,34 @@ export const AllVariants: Story = {
                 Button
               </Button>
             </td>
+            <td style={cellStyle}>
+              <Button
+                variant={variant}
+                leftIcon={Download}
+                ariaLabel={`${variant} left icon`}
+                onClick={args.onClick}
+              >
+                Button
+              </Button>
+            </td>
+            <td style={cellStyle}>
+              <Button
+                variant={variant}
+                rightIcon={ArrowRight}
+                ariaLabel={`${variant} right icon`}
+                onClick={args.onClick}
+              >
+                Button
+              </Button>
+            </td>
+            <td style={cellStyle}>
+              <Button
+                variant={variant}
+                leftIcon={ThumbsUp}
+                ariaLabel={`${variant} icon only`}
+                onClick={args.onClick}
+              />
+            </td>
           </tr>
         ))}
       </tbody>
@@ -113,12 +151,16 @@ export const AllVariants: Story = {
   play: async ({ args, canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const disabledButton = canvas.getByRole("button", { name: "primary disabled" });
+    const disabledButton = canvas.getByRole("button", {
+      name: "primary disabled",
+    });
     await expect(disabledButton).toBeDisabled();
     await fireEvent.click(disabledButton);
     await expect(args.onClick).not.toHaveBeenCalled();
 
-    const loadingButton = canvas.getByRole("button", { name: "primary loading" });
+    const loadingButton = canvas.getByRole("button", {
+      name: "primary loading",
+    });
     await expect(loadingButton).toBeDisabled();
     await expect(loadingButton).toHaveAttribute("aria-busy", "true");
     await fireEvent.click(loadingButton);
@@ -127,5 +169,21 @@ export const AllVariants: Story = {
     const enabledButton = canvas.getByRole("button", { name: "primary md" });
     await userEvent.click(enabledButton);
     await expect(args.onClick).toHaveBeenCalledOnce();
+
+    const leftIconButton = canvas.getByRole("button", {
+      name: "primary left icon",
+    });
+    await expect(leftIconButton.querySelector("svg")).toBeInTheDocument();
+
+    const rightIconButton = canvas.getByRole("button", {
+      name: "primary right icon",
+    });
+    await expect(rightIconButton.querySelector("svg")).toBeInTheDocument();
+
+    const iconOnlyButton = canvas.getByRole("button", {
+      name: "primary icon only",
+    });
+    await expect(iconOnlyButton.querySelector("svg")).toBeInTheDocument();
+    await expect(iconOnlyButton).toHaveTextContent("");
   },
 };

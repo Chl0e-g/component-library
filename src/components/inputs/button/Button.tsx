@@ -1,7 +1,10 @@
 import type { CSSProperties, MouseEventHandler, ReactNode, Ref } from "react";
+import type { LucideIcon } from "lucide-react";
 
 import type { TSpacingToken } from "../../../tokens/types.ts";
 import { Spinner } from "../../feedback/spinner/Spinner.tsx";
+import { Icon } from "../../foundations/icon/Icon.tsx";
+import { Flex } from "../../foundations/flex/Flex.tsx";
 
 import "./Button.css";
 
@@ -18,9 +21,11 @@ export interface TButtonProps {
   type?: TButtonType;
   disabled?: boolean;
   loading?: boolean;
+  leftIcon?: LucideIcon;
+  rightIcon?: LucideIcon;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   ariaLabel?: string;
-  children: ReactNode;
+  children?: ReactNode;
   ref?: Ref<HTMLButtonElement>;
 }
 
@@ -54,6 +59,8 @@ export const Button = ({
   type = "button",
   disabled,
   loading,
+  leftIcon,
+  rightIcon,
   onClick,
   ariaLabel,
   children,
@@ -78,16 +85,22 @@ export const Button = ({
     >
       {loading && (
         <span className="button-spinner">
-          <Spinner size={size} />
+          <Spinner />
         </span>
       )}
-      <span
+
+      <Flex
+        as="span"
+        gap="sm"
+        align="center"
         className={
-          loading ? "button-label button-label-hidden" : "button-label"
+          loading ? "button-content button-content-hidden" : "button-content"
         }
       >
+        {leftIcon && <Icon icon={leftIcon} />}
         {children}
-      </span>
+        {rightIcon && <Icon icon={rightIcon} />}
+      </Flex>
     </button>
   );
 };
