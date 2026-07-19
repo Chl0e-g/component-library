@@ -81,8 +81,4 @@ npm run generate:tokens
 
 ## Documentation
 
-Storybook is the primary source of documentation for the project. Every component includes interactive examples, API documentation, accessibility notes and usage guidance. View the [deployed Storybook here](https://chl0e-g.github.io/component-library/?path=/docs/feedback-toast--docs).
-
-## Status
-
-This project is actively being developed and expanded as a demonstration of modern design system engineering practices.
+Storybook is the primary source of documentation for the project. Every component includes interactive examples, and I will be adding API documentation, accessibility notes and usage guidance. View the [deployed Storybook here](https://chl0e-g.github.io/component-library/?path=/docs/feedback-toast--docs).
