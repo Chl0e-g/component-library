@@ -2,8 +2,14 @@ import type { ElementType, ReactNode } from "react";
 
 import type { TTextVariant } from "../../../tokens/types.ts";
 
+export type TTextAs = "label";
+
 export interface TTextProps {
   variant?: TTextVariant;
+  /** Override the default element for the variant, e.g. "label" to associate with a form control via htmlFor. */
+  as?: TTextAs;
+  id?: string;
+  htmlFor?: string;
   children: ReactNode;
 }
 
@@ -20,8 +26,16 @@ const defaultElement: Record<TTextVariant, ElementType> = {
   mono: "span",
 };
 
-export const Text = ({ variant = "body", children }: TTextProps) => {
-  const Component = defaultElement[variant];
+export const Text = ({ variant = "body", as, id, htmlFor, children }: TTextProps) => {
+  const Component = as ?? defaultElement[variant];
 
-  return <Component className={`text-${variant}`}>{children}</Component>;
+  return (
+    <Component
+      className={`text-${variant}`}
+      id={id}
+      htmlFor={as === "label" ? htmlFor : undefined}
+    >
+      {children}
+    </Component>
+  );
 };
