@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Info, X } from "lucide-react";
+import { CircleCheck, Info, X } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 import { Box } from "../../foundations/box/Box.tsx";
@@ -10,7 +10,7 @@ import { Button } from "../../inputs/button/Button.tsx";
 
 import "./Toast.css";
 
-export type TToastVariant = "info";
+export type TToastVariant = "info" | "success";
 
 export interface TToastProps {
   title: string;
@@ -20,6 +20,7 @@ export interface TToastProps {
 
 const iconByVariant: Record<TToastVariant, LucideIcon> = {
   info: Info,
+  success: CircleCheck,
 };
 
 export const Toast = ({

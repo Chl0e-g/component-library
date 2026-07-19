@@ -7,10 +7,13 @@
   --toast-accent: var(--color-primary);
 }
 
+.variant-success {
+  --toast-accent: var(--color-success-50);
+}
+
 .toast-title {
   line-height: var(--line-height-none);
   font-weight: var(--font-weight-medium);
-  color: var(--toast-accent);
 }
 
 .toast-accent {
