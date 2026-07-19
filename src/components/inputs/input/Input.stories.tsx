@@ -40,3 +40,19 @@ export const Disabled: Story = {
     disabled: true,
   },
 };
+
+export const WithHelperText: Story = {
+  args: {
+    label: "Email address",
+    placeholder: "you@example.com",
+    helperText: "The email you use at work.",
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const input = canvas.getByLabelText("Email address");
+    const helperText = canvas.getByText("The email you use at work.");
+
+    await expect(input).toHaveAttribute("aria-describedby", helperText.id);
+  },
+};

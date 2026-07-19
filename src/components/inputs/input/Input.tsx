@@ -12,6 +12,7 @@ export type TInputType =
 export interface TInputProps {
   label: string;
   placeholder?: string;
+  helperText?: string;
   value?: string;
   defaultValue?: string;
   onChange?: ChangeEventHandler<HTMLInputElement>;
@@ -25,6 +26,7 @@ export interface TInputProps {
 export const Input = ({
   label,
   placeholder,
+  helperText,
   value,
   defaultValue,
   onChange,
@@ -35,12 +37,13 @@ export const Input = ({
   ref,
 }: TInputProps) => {
   const id = useId();
+  const helperTextId = `${id}-helper-text`;
 
   return (
-    <Flex direction="column" gap="xs" className="input-group">
-      <label htmlFor={id}>
-        <Text variant="overline">{label}</Text>
-      </label>
+    <Flex direction="column" gap="sm">
+      <Text as="label" variant="overline" htmlFor={id}>
+        {label}
+      </Text>
       <input
         ref={ref}
         id={id}
@@ -53,7 +56,13 @@ export const Input = ({
         disabled={disabled}
         required={required}
         onChange={onChange}
+        aria-describedby={helperText ? helperTextId : undefined}
       />
+      {helperText && (
+        <Text variant="caption" id={helperTextId}>
+          {helperText}
+        </Text>
+      )}
     </Flex>
   );
 };

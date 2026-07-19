@@ -52,6 +52,7 @@
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-tight);
+  color: var(--color-neutral-70);
 }
 
 .text-overline {
