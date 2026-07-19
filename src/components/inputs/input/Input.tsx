@@ -1,8 +1,10 @@
 import type { ChangeEventHandler, Ref } from "react";
 import { useId } from "react";
+import { CircleAlert } from "lucide-react";
 
 import { Flex } from "../../foundations/flex/Flex.tsx";
 import { Text } from "../../foundations/text/Text.tsx";
+import { Icon } from "../../foundations/icon/Icon.tsx";
 
 import "./Input.css";
 
@@ -13,6 +15,7 @@ export interface TInputProps {
   label: string;
   placeholder?: string;
   helperText?: string;
+  errorMessage?: string;
   value?: string;
   defaultValue?: string;
   onChange?: ChangeEventHandler<HTMLInputElement>;
@@ -27,6 +30,7 @@ export const Input = ({
   label,
   placeholder,
   helperText,
+  errorMessage,
   value,
   defaultValue,
   onChange,
@@ -38,6 +42,14 @@ export const Input = ({
 }: TInputProps) => {
   const id = useId();
   const helperTextId = `${id}-helper-text`;
+  const errorMessageId = `${id}-error-message`;
+
+  const describedBy = [
+    helperText && helperTextId,
+    errorMessage && errorMessageId,
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   return (
     <Flex direction="column" gap="sm">
@@ -56,12 +68,26 @@ export const Input = ({
         disabled={disabled}
         required={required}
         onChange={onChange}
-        aria-describedby={helperText ? helperTextId : undefined}
+        aria-invalid={errorMessage ? true : undefined}
+        aria-describedby={describedBy || undefined}
       />
       {helperText && (
-        <Text variant="caption" id={helperTextId}>
+        <span
+          id={helperTextId}
+          className={
+            errorMessage ? "text-caption visually-hidden" : "text-caption"
+          }
+        >
           {helperText}
-        </Text>
+        </span>
+      )}
+      {errorMessage && (
+        <span id={errorMessageId} className="text-caption input-error-message">
+          <Flex as="span" gap="xs" align="center">
+            <Icon icon={CircleAlert} />
+            {errorMessage}
+          </Flex>
+        </span>
       )}
     </Flex>
   );

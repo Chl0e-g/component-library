@@ -56,3 +56,51 @@ export const WithHelperText: Story = {
     await expect(input).toHaveAttribute("aria-describedby", helperText.id);
   },
 };
+
+export const WithError: Story = {
+  args: {
+    label: "Email address",
+    placeholder: "you@example.com",
+    errorMessage: "Enter a valid email address.",
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const input = canvas.getByLabelText("Email address");
+    const errorMessage = canvas
+      .getByText("Enter a valid email address.")
+      .closest(".input-error-message");
+
+    await expect(input).toHaveAttribute("aria-invalid", "true");
+    await expect(input).toHaveAttribute("aria-describedby", errorMessage?.id);
+  },
+};
+
+export const WithHelperTextAndError: Story = {
+  args: {
+    label: "Email address",
+    placeholder: "you@example.com",
+    helperText: "The email you use at work.",
+    errorMessage: "Enter a valid email address.",
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const input = canvas.getByLabelText("Email address");
+    const helperText = canvas.getByText("The email you use at work.");
+    const errorMessage = canvas
+      .getByText("Enter a valid email address.")
+      .closest(".input-error-message");
+
+    // Helper text stays in the DOM for screen readers but is visually hidden
+    // once an error is shown; the error message is visible.
+    await expect(helperText).toHaveClass("visually-hidden");
+    await expect(errorMessage).toBeVisible();
+
+    await expect(input).toHaveAttribute("aria-invalid", "true");
+    await expect(input).toHaveAttribute(
+      "aria-describedby",
+      `${helperText.id} ${errorMessage?.id}`,
+    );
+  },
+};
