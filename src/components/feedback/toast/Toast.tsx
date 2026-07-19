@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CircleCheck, Info, TriangleAlert, X } from "lucide-react";
+import { CircleAlert, CircleCheck, Info, TriangleAlert, X } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 import { Box } from "../../foundations/box/Box.tsx";
@@ -10,7 +10,7 @@ import { Button } from "../../inputs/button/Button.tsx";
 
 import "./Toast.css";
 
-export type TToastVariant = "info" | "success" | "warning";
+export type TToastVariant = "info" | "success" | "warning" | "failure";
 
 export interface TToastProps {
   title: string;
@@ -22,6 +22,7 @@ const iconByVariant: Record<TToastVariant, LucideIcon> = {
   info: Info,
   success: CircleCheck,
   warning: TriangleAlert,
+  failure: CircleAlert,
 };
 
 export const Toast = ({
@@ -35,8 +36,15 @@ export const Toast = ({
     return null;
   }
 
+  const role = variant === "failure" ? "alert" : "status";
+  const ariaLive = variant === "failure" ? "assertive" : "polite";
+
   return (
-    <div className={`toast variant-${variant}`} role="status" aria-live="polite">
+    <div
+      className={`toast variant-${variant}`}
+      role={role}
+      aria-live={ariaLive}
+    >
       <Box padding="md">
         <Flex gap="sm" align="start" justify="between">
           <Flex gap="sm" align="start">
