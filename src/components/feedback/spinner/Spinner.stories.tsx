@@ -3,9 +3,9 @@ import { expect, within } from "storybook/test";
 
 import { Flex } from "../../foundations/flex/Flex.tsx";
 import { Spinner } from "./Spinner.tsx";
-import type { TFontSizeToken } from "../../../tokens/types.ts";
+import type { TSpinnerSize } from "./Spinner.tsx";
 
-const sizes: TFontSizeToken[] = ["xs", "sm", "md", "lg", "2xl", "3xl", "4xl"];
+const sizes: TSpinnerSize[] = ["sm", "md", "lg"];
 
 const meta = {
   title: "Feedback/Spinner",
@@ -19,6 +19,10 @@ const meta = {
 export default meta;
 
 type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
+  args: { size: "md" },
+};
 
 export const Sizes: Story = {
   args: {},
