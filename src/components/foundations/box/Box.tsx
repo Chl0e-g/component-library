@@ -20,6 +20,9 @@ type TBoxStyle = CSSProperties & {
   "--box-radius"?: string;
 };
 
+/**
+ * Surface primitive — compose with `Flex` for layout.
+ */
 export const Box = ({
   padding = "sm",
   radius = "sm",

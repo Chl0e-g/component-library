@@ -11,6 +11,7 @@ export interface TIconProps {
   ariaLabel?: string;
 }
 
+/** Renders a Lucide icon inheriting the surrounding text size by default. Use `size` for standalone use. */
 export const Icon = ({ icon: IconComponent, size, ariaLabel }: TIconProps) => {
   const style: CSSProperties | undefined = size
     ? { fontSize: `var(--font-size-${size})` }

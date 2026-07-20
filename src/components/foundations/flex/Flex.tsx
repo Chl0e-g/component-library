@@ -47,6 +47,7 @@ const justifyContent: Record<TFlexJustify, string> = {
   between: "space-between",
 };
 
+/** Flexbox layout primitive driven by spacing tokens; accepts `className` for one-off overrides. */
 export const Flex = ({
   direction = "row",
   gap,

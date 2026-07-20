@@ -15,6 +15,7 @@ export interface TSpinnerProps {
   size?: TSpinnerSize;
 }
 
+/** Inherits font-size by default so it scales inside text/buttons, use `size` prop for standalone use. */
 export const Spinner = ({ size }: TSpinnerProps = {}) => {
   const style: CSSProperties | undefined = size
     ? { fontSize: `var(--font-size-${sizeToFontSizeToken[size]})` }

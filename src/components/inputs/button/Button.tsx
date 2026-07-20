@@ -53,6 +53,9 @@ const fontSizeBySize: Record<TButtonSize, "sm" | "md" | "lg"> = {
   lg: "lg",
 };
 
+/**
+ * Primary action control. When `loading`, an inline `Spinner` displays.
+ */
 export const Button = ({
   size = "md",
   variant = "primary",

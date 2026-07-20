@@ -39,6 +39,10 @@ const toastStyle: TToastStyle = {
   "--toast-transition-duration": `${TOAST_TRANSITION_MS}ms`,
 };
 
+/**
+ * Self-dismissing notification: auto-dismisses after 5s, pauses on hover.
+ * Trigger its rendering with `useToast`'s `show()` — not intended to be used directly.
+ */
 export const Toast = ({
   title,
   message,

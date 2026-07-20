@@ -26,6 +26,7 @@ export interface TInputProps {
   ref?: Ref<HTMLInputElement>;
 }
 
+/** Labeled text input, utilise `helperText`/`errorMessage` as relevant. */
 export const Input = ({
   label,
   placeholder,
@@ -55,12 +56,7 @@ export const Input = ({
     <Flex direction="column" gap="sm">
       <Text as="label" variant="overline" htmlFor={id}>
         {label}
-        {required && (
-          <span aria-hidden="true">
-            {" "}
-            *
-          </span>
-        )}
+        {required && <span aria-hidden="true"> *</span>}
       </Text>
       <input
         ref={ref}

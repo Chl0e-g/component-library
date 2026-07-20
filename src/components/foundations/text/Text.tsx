@@ -27,6 +27,11 @@ const defaultElement: Record<TTextVariant, ElementType> = {
   mono: "span",
 };
 
+/**
+ * Typography primitive. Renders the semantic default element for each `variant`
+ * (e.g. `h1` → `<h1>`, `body` → `<p>`) unless overridden via `as`.
+ * Utilise `id` and `htmlFor` for form labels.
+ */
 export const Text = ({
   variant = "body",
   as,
