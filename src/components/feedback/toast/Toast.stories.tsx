@@ -27,7 +27,7 @@ const toastContentByVariant: Record<
   },
   success: {
     title: "Deploy succeeded",
-    message: "meridian-app v2.4.1 is live on production.",
+    message: "App v3.2.1 is live on production.",
   },
   warning: {
     title: "Storage at 85%",
