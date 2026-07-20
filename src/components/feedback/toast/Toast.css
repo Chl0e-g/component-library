@@ -48,3 +48,28 @@
   right: var(--spacing-xs);
   top: var(--spacing-sm);
 }
+
+.toast-progress {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 3px;
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  background-color: var(--toast-accent);
+  transform-origin: left;
+  transform: scaleX(0);
+  animation: toast-progress-fill var(--toast-duration) linear forwards;
+}
+
+@keyframes toast-progress-fill {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toast-progress {
+    animation: none;
+    transform: scaleX(1);
+  }
+}

@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import type { CSSProperties } from "react";
 import { CircleAlert, CircleCheck, Info, TriangleAlert, X } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -25,12 +26,32 @@ const iconByVariant: Record<TToastVariant, LucideIcon> = {
   failure: CircleAlert,
 };
 
+const TOAST_DURATION_MS = 5000;
+
+type TToastProgressStyle = CSSProperties & {
+  "--toast-duration"?: string;
+};
+
+const progressStyle: TToastProgressStyle = {
+  "--toast-duration": `${TOAST_DURATION_MS}ms`,
+};
+
 export const Toast = ({
   title,
   message,
   variant = "info",
 }: TToastProps) => {
   const [dismissed, setDismissed] = useState(false);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setDismissed(true);
+    }, TOAST_DURATION_MS);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, []);
 
   if (dismissed) {
     return null;
@@ -76,6 +97,7 @@ export const Toast = ({
         </Flex>
       </Box>
       <span className="toast-accent" />
+      <span className="toast-progress" style={progressStyle} />
     </div>
   );
 };

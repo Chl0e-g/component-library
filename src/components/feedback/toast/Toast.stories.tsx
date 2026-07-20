@@ -32,6 +32,11 @@ export const Default: Story = {
       canvas.getByText("Workspace data is up to date."),
     ).toBeInTheDocument();
 
+    // Auto-dismiss's progress bar is wired up with a fixed duration; the
+    // actual 5s dismissal isn't awaited here to keep the test fast.
+    const progress = canvasElement.querySelector(".toast-progress");
+    await expect(progress).toHaveStyle({ "--toast-duration": "5000ms" });
+
     await userEvent.click(canvas.getByRole("button", { name: "Dismiss" }));
     await expect(canvas.queryByRole("status")).not.toBeInTheDocument();
   },
