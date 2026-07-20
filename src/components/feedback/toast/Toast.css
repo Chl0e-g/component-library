@@ -1,6 +1,26 @@
 .toast {
   position: relative;
-  max-width: calc(4 * var(--spacing-5xl));
+  width: calc(4 * var(--spacing-5xl));
+  animation: toast-enter var(--toast-transition-duration) ease-out;
+}
+
+.toast-exiting {
+  animation: toast-exit var(--toast-transition-duration) ease-in forwards;
+  pointer-events: none;
+}
+
+@keyframes toast-enter {
+  from {
+    opacity: 0;
+    transform: translateX(var(--spacing-md));
+  }
+}
+
+@keyframes toast-exit {
+  to {
+    opacity: 0;
+    transform: translateX(var(--spacing-md));
+  }
 }
 
 .variant-info {
@@ -75,5 +95,10 @@
   .toast-progress {
     animation: none;
     transform: scaleX(1);
+  }
+
+  .toast,
+  .toast-exiting {
+    animation: none;
   }
 }

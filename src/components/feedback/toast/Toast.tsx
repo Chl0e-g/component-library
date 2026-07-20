@@ -27,13 +27,16 @@ const iconByVariant: Record<TToastVariant, LucideIcon> = {
 };
 
 const TOAST_DURATION_MS = 5000;
+const TOAST_TRANSITION_MS = 200;
 
-type TToastProgressStyle = CSSProperties & {
+type TToastStyle = CSSProperties & {
   "--toast-duration"?: string;
+  "--toast-transition-duration"?: string;
 };
 
-const progressStyle: TToastProgressStyle = {
+const toastStyle: TToastStyle = {
   "--toast-duration": `${TOAST_DURATION_MS}ms`,
+  "--toast-transition-duration": `${TOAST_TRANSITION_MS}ms`,
 };
 
 export const Toast = ({
@@ -41,19 +44,36 @@ export const Toast = ({
   message,
   variant = "info",
 }: TToastProps) => {
-  const [dismissed, setDismissed] = useState(false);
+  const [phase, setPhase] = useState<"visible" | "exiting" | "exited">(
+    "visible",
+  );
+  const dismissedRef = useRef(false);
   const remainingRef = useRef(TOAST_DURATION_MS);
   const timerStartRef = useRef(0);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(
     undefined,
   );
+  const exitTimeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(
+    undefined,
+  );
+
+  const dismiss = useCallback(() => {
+    if (dismissedRef.current) {
+      return;
+    }
+    dismissedRef.current = true;
+
+    clearTimeout(timeoutRef.current);
+    setPhase("exiting");
+    exitTimeoutRef.current = setTimeout(() => {
+      setPhase("exited");
+    }, TOAST_TRANSITION_MS);
+  }, []);
 
   const startTimer = useCallback(() => {
     timerStartRef.current = Date.now();
-    timeoutRef.current = setTimeout(() => {
-      setDismissed(true);
-    }, remainingRef.current);
-  }, []);
+    timeoutRef.current = setTimeout(dismiss, remainingRef.current);
+  }, [dismiss]);
 
   const pauseTimer = useCallback(() => {
     clearTimeout(timeoutRef.current);
@@ -65,16 +85,15 @@ export const Toast = ({
 
   useEffect(() => {
     timerStartRef.current = Date.now();
-    timeoutRef.current = setTimeout(() => {
-      setDismissed(true);
-    }, remainingRef.current);
+    timeoutRef.current = setTimeout(dismiss, remainingRef.current);
 
     return () => {
       clearTimeout(timeoutRef.current);
+      clearTimeout(exitTimeoutRef.current);
     };
-  }, []);
+  }, [dismiss]);
 
-  if (dismissed) {
+  if (phase === "exited") {
     return null;
   }
 
@@ -83,9 +102,10 @@ export const Toast = ({
 
   return (
     <div
-      className={`toast variant-${variant}`}
+      className={`toast variant-${variant}${phase === "exiting" ? " toast-exiting" : ""}`}
       role={role}
       aria-live={ariaLive}
+      style={toastStyle}
       onMouseEnter={pauseTimer}
       onMouseLeave={startTimer}
     >
@@ -112,15 +132,13 @@ export const Toast = ({
               size="sm"
               leftIcon={X}
               ariaLabel="Dismiss"
-              onClick={() => {
-                setDismissed(true);
-              }}
+              onClick={dismiss}
             />
           </div>
         </Flex>
       </Box>
       <span className="toast-accent" />
-      <span className="toast-progress" style={progressStyle} />
+      <span className="toast-progress" />
     </div>
   );
 };
