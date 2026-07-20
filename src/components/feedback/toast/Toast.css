@@ -61,6 +61,10 @@
   animation: toast-progress-fill var(--toast-duration) linear forwards;
 }
 
+.toast:hover .toast-progress {
+  animation-play-state: paused;
+}
+
 @keyframes toast-progress-fill {
   to {
     transform: scaleX(1);

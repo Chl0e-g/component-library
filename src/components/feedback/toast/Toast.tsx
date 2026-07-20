@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import type { CSSProperties } from "react";
 import { CircleAlert, CircleCheck, Info, TriangleAlert, X } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
@@ -42,14 +42,35 @@ export const Toast = ({
   variant = "info",
 }: TToastProps) => {
   const [dismissed, setDismissed] = useState(false);
+  const remainingRef = useRef(TOAST_DURATION_MS);
+  const timerStartRef = useRef(0);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(
+    undefined,
+  );
+
+  const startTimer = useCallback(() => {
+    timerStartRef.current = Date.now();
+    timeoutRef.current = setTimeout(() => {
+      setDismissed(true);
+    }, remainingRef.current);
+  }, []);
+
+  const pauseTimer = useCallback(() => {
+    clearTimeout(timeoutRef.current);
+    remainingRef.current = Math.max(
+      remainingRef.current - (Date.now() - timerStartRef.current),
+      0,
+    );
+  }, []);
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
+    timerStartRef.current = Date.now();
+    timeoutRef.current = setTimeout(() => {
       setDismissed(true);
-    }, TOAST_DURATION_MS);
+    }, remainingRef.current);
 
     return () => {
-      clearTimeout(timeout);
+      clearTimeout(timeoutRef.current);
     };
   }, []);
 
@@ -65,6 +86,8 @@ export const Toast = ({
       className={`toast variant-${variant}`}
       role={role}
       aria-live={ariaLive}
+      onMouseEnter={pauseTimer}
+      onMouseLeave={startTimer}
     >
       <Box padding="md">
         <Flex gap="sm" align="start" justify="between">
