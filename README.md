@@ -1,25 +1,24 @@
 # [Chloe's Component Library](https://chl0e-g.github.io/component-library/?path=/docs/feedback-toast--docs)
 
-Chloe's Component Library is a reusable React component library built as a portfolio project to demonstrate the principles of implementing and maintaining a modern design system.
+A reusable React component library built as a portfolio project to demonstrate the principles of implementing and maintaining a modern design system.
 
-The project focuses on building accessible, composable and type-safe UI components with a strong emphasis on developer experience, documentation and consistency. Rather than aiming to become a comprehensive UI framework, Chloe's Component Library is intended to showcase the engineering practices involved in creating a production-quality component library.
+The project focuses on building accessible, composable and type-safe UI components with a strong emphasis on developer experience. It's a showcase of how I'd approach creating a production-quality component library.
 
 Please note: It's quite small right now, I'm still adding components!
 
 ## Goals
 
-- Target the library at internal business applications.
+- Target a use case of internal business applications.
 - Prioritise accessibility.
 - Create consistent and predictable component APIs.
 - Utilise design tokens throughout.
 - Prioritise composition over configuration.
 - Provide excellent developer experience through consistent, intuitive component APIs, Typescript, and Storybook.
-- Demonstrate testing and documentation practices expected of a modern design system.
+- Demonstrate testing and documentation.
 
 ## Non-Goals
 
-- Replace established UI libraries such as Material UI or Mantine.
-- Target marketing websites or highly animated interfaces.
+- Target a use case of marketing websites or highly animated UIs.
 - Build every possible component. Instead, focus on a smaller set of polished components.
 - Spending effort on important but out-of-scope areas - this is a project in my spare time, so to focus effort on the core goals I will not be:
   - Implementing CI/CD
