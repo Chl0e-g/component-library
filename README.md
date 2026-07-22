@@ -4,7 +4,7 @@ A reusable React component library built as a portfolio project to demonstrate t
 
 The project focuses on building accessible, composable and type-safe UI components with a strong emphasis on developer experience. It's a showcase of how I'd approach creating a production-quality component library.
 
-Please note: It's quite small right now, I'm still adding components!
+Please note: It's fairly small right now, I'm still adding components!
 
 ## Goals
 
@@ -21,7 +21,7 @@ Please note: It's quite small right now, I'm still adding components!
 - Target a use case of marketing websites or highly animated UIs.
 - Build every possible component. Instead, focus on a smaller set of polished components.
 - Spending effort on important but out-of-scope areas - this is a project in my spare time, so to focus effort on the core goals I will not be:
-  - Implementing CI/CD
+  - Focusing time on CI/CD
   - Spending lots of time on design (instead I'm using a fairly simple design, generated with Figma Make)
 
 ## Tech Stack
@@ -34,6 +34,16 @@ Please note: It's quite small right now, I'm still adding components!
 - CSS Variables (Design Tokens)
 - ESLint
 - Prettier
+
+## Styles
+
+Import css once at your app root:
+
+```tsx
+import "component-library/styles";
+```
+
+This includes the design tokens and component styles. Fonts are excluded to keep it small — the type tokens fall back to system fonts, so install [`@fontsource`](https://fontsource.org/) (see `src/styles/fonts.css`) for exact typefaces.
 
 ## Getting Started
 

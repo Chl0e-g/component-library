@@ -6,7 +6,9 @@
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "sideEffects": false,
+  "sideEffects": [
+    "**/*.css"
+  ],
   "files": [
     "dist"
   ],
@@ -14,7 +16,8 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
-    }
+    },
+    "./styles": "./dist/index.css"
   },
   "scripts": {
     "build": "tsc -b && vite build --mode lib",
@@ -31,6 +34,9 @@
   "devDependencies": {
     "@chromatic-com/storybook": "^5.2.1",
     "@eslint/js": "^10.0.1",
+    "@fontsource/inter": "^5.2.8",
+    "@fontsource/jetbrains-mono": "^5.2.8",
+    "@fontsource/libre-baskerville": "^5.2.10",
     "@microsoft/api-extractor": "^7.58.11",
     "@storybook/addon-a11y": "^10.5.0",
     "@storybook/addon-docs": "^10.5.0",
@@ -63,9 +69,6 @@
     "vitest": "^4.1.10"
   },
   "dependencies": {
-    "@fontsource/inter": "^5.2.8",
-    "@fontsource/jetbrains-mono": "^5.2.8",
-    "@fontsource/libre-baskerville": "^5.2.10",
     "lucide-react": "^1.25.0"
   }
 }
