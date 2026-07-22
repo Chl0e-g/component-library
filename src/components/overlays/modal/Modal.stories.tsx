@@ -3,8 +3,8 @@ import { expect, screen, userEvent, waitFor, within } from "storybook/test";
 import { useState } from "react";
 
 import type { TComponentSize } from "../../../tokens/types.ts";
-import { Text } from "../../foundations/text/Text.tsx";
 import { Button } from "../../inputs/button/Button.tsx";
+import { Input } from "../../inputs/input/Input.tsx";
 import { Modal } from "./Modal.tsx";
 
 const meta = {
@@ -46,9 +46,14 @@ const ModalDemo = ({
         subtitle={subtitle}
         size={size}
       >
-        <Text>
-          They will receive an email with a link to join your workspace.
-        </Text>
+        <Modal.Body>
+          <Input
+            label="Email address"
+            placeholder="colleague@company.com"
+            type="email"
+          />
+          <Input label="Role" placeholder="E.g. Frontend Developer" />
+        </Modal.Body>
       </Modal>
     </>
   );
@@ -78,6 +83,7 @@ export const Default: Story = {
     await expect(dialog).toHaveAccessibleDescription(
       "They will receive an email with a link to join your workspace.",
     );
+    await expect(screen.getByLabelText("Email address")).toBeInTheDocument();
     await waitFor(() =>
       expect(dialog.contains(document.activeElement)).toBe(true),
     );

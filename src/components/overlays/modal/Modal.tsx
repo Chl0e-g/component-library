@@ -5,6 +5,8 @@ import { X } from "lucide-react";
 import type { TComponentSize } from "../../../tokens/types.ts";
 import { Flex } from "../../foundations/flex/Flex.tsx";
 import { Button } from "../../inputs/button/Button.tsx";
+import { ModalBody } from "./ModalBody.tsx";
+import { ModalSizeContext } from "./ModalContext.tsx";
 
 import "./Modal.css";
 
@@ -28,14 +30,14 @@ export interface TModalProps {
  * </Modal>
  * ```
  */
-export const Modal = ({
+export function Modal({
   open,
   onClose,
   title,
   subtitle,
   size = "md",
   children,
-}: TModalProps) => {
+}: TModalProps) {
   return (
     <Dialog.Root
       open={open}
@@ -72,9 +74,11 @@ export const Modal = ({
               )}
             </Flex>
           </header>
-          {children}
+          <ModalSizeContext value={size}>{children}</ModalSizeContext>
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>
   );
-};
+}
+
+Modal.Body = ModalBody;

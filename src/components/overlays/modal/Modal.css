@@ -25,19 +25,16 @@
 .modal.size-sm {
   --modal-width: calc(5 * var(--spacing-5xl));
   --modal-padding: var(--spacing-md);
-  --modal-gap: var(--spacing-sm);
 }
 
 .modal.size-md {
   --modal-width: calc(7 * var(--spacing-5xl));
   --modal-padding: var(--spacing-lg);
-  --modal-gap: var(--spacing-md);
 }
 
 .modal.size-lg {
   --modal-width: calc(8 * var(--spacing-5xl));
   --modal-padding: var(--spacing-xl);
-  --modal-gap: var(--spacing-lg);
 }
 
 .modal-close {
@@ -65,4 +62,8 @@
 .modal-subtitle {
   margin: 0;
   color: var(--color-neutral-70);
+}
+
+.modal-body {
+  padding: var(--modal-padding);
 }
