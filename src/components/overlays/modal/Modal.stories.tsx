@@ -174,6 +174,7 @@ export const Default: Story = {
       canvas.getByRole("button", { name: "Form modal example" }),
     );
     const dialog = await screen.findByRole("dialog");
+    await expect(dialog).toHaveAttribute("data-state", "open");
     await expect(dialog).toHaveAccessibleName("Invite team member");
     await expect(dialog).toHaveAccessibleDescription(
       "They will receive an email with a link to join your workspace.",
