@@ -47,6 +47,7 @@
   --color-foreground: #1A1A24;
   --color-card: #FDFCFA;
   --color-muted: #EDEAE4;
+  --color-overlay: rgb(26 26 36 / 0.5);
   --color-primary: #1C2B4A;
   --color-primary-hover: #243F68;
   --color-primary-active: #111A2D;
@@ -77,6 +78,10 @@
 
   --radius-sm: 6px;
   --radius-lg: 8px;
+
+  --shadow-sm: 0 1px 2px 0 rgb(26 26 36 / 0.06);
+  --shadow-md: 0 4px 12px -2px rgb(26 26 36 / 0.12);
+  --shadow-lg: 0 16px 40px -12px rgb(26 26 36 / 0.28);
 
   --font-family-serif: "Libre Baskerville", Georgia, serif;
   --font-family-sans: "Inter", system-ui, sans-serif;

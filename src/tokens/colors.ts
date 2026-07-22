@@ -63,6 +63,7 @@ export const semantic = {
   foreground: neutral["neutral-100"],
   card: neutral["neutral-10"],
   muted: neutral["neutral-30"],
+  overlay: "rgb(26 26 36 / 0.5)",
 
   // Brand
   primary: primary["primary-90"],

@@ -3,6 +3,7 @@ import { writeFileSync } from "node:fs";
 import { colors } from "../src/tokens/colors.ts";
 import { spacing } from "../src/tokens/spacing.ts";
 import { radius } from "../src/tokens/radius.ts";
+import { shadow } from "../src/tokens/shadow.ts";
 import {
   fontFamily,
   fontSize,
@@ -34,6 +35,8 @@ ${generateVariables("color", colors)}
 ${generateVariables("spacing", spacing, "px")}
 
 ${generateVariables("radius", radius, "px")}
+
+${generateVariables("shadow", shadow)}
 
 ${generateVariables("font-family", fontFamily)}
 
