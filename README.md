@@ -1,4 +1,4 @@
-# [Chloe's Component Library](https://chl0e-g.github.io/component-library/?path=/docs/feedback-toast--docs)
+# [Chloe's Component Library](https://chl0e-g.github.io/component-library/)
 
 A reusable React component library built as a portfolio project to demonstrate the principles of implementing and maintaining a modern design system.
 
@@ -34,6 +34,14 @@ Please note: It's fairly small right now, I'm still adding components!
 - CSS Variables (Design Tokens)
 - ESLint
 - Prettier
+- Radix UI (headless primitives for overlays — see [Dependencies](#dependencies))
+
+
+## Dependencies
+
+This project uses minimal, deliberate dependencies: the foundations, primitives, and styling are built in-house. The exception is **overlays**, which use [Radix UI](https://www.radix-ui.com/)'s headless components. This is because Radix handles complex interaction accessibility so well (focus trapping, `aria` attributes, keyboard navigation, dismissal). This library keeps full control of the component API's, composition, and styling on top.
+
+The only runtime dependencies are [`lucide-react`](https://lucide.dev/) (icons) and Radix UI (currently just [`@radix-ui/react-dialog`](https://www.radix-ui.com/primitives/docs/components/dialog)).
 
 ## Styles
 
@@ -90,4 +98,4 @@ npm run generate:tokens
 
 ## Documentation
 
-Storybook is the primary source of documentation for the project. Every component includes interactive examples, and I will be adding API documentation, accessibility notes and usage guidance. View the [deployed Storybook here](https://chl0e-g.github.io/component-library/?path=/docs/feedback-toast--docs).
+Storybook is the primary source of documentation for the project. Every component includes interactive examples, and I will be adding API documentation, accessibility notes and usage guidance. View the [deployed Storybook here](https://chl0e-g.github.io/component-library/).
