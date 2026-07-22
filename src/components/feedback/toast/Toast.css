@@ -65,7 +65,7 @@
 
 .dismiss-button-wrapper {
   position: absolute;
-  right: var(--spacing-xs);
+  right: var(--spacing-sm);
   top: var(--spacing-sm);
 }
 

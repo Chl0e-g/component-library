@@ -27,6 +27,13 @@
   }
 }
 
+/* Make an icon-only button square */
+.button.icon-only .button-content {
+  inline-size: 1lh;
+  justify-content: center;
+  align-items: center;
+}
+
 .button-content-hidden {
   opacity: 0;
 }

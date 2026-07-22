@@ -67,9 +67,13 @@ export const Button = ({
   children,
   ref,
 }: TButtonProps) => {
+  const iconOnly = !children && (leftIcon || rightIcon);
+
   const style: TButtonStyle = {
     "--button-padding-block": `var(--spacing-${paddingBlockBySize[size]})`,
-    "--button-padding-inline": `var(--spacing-${paddingInlineBySize[size]})`,
+    "--button-padding-inline": `var(--spacing-${
+      iconOnly ? paddingBlockBySize[size] : paddingInlineBySize[size]
+    })`,
     "--button-font-size": `var(--font-size-${fontSizeBySize[size]})`,
   };
 
@@ -79,7 +83,9 @@ export const Button = ({
       type={type}
       disabled={disabled || loading}
       aria-busy={loading}
-      className={`button variant-${variant}${loading ? " loading" : ""}`}
+      className={`button variant-${variant}${iconOnly ? " icon-only" : ""}${
+        loading ? " loading" : ""
+      }`}
       style={style}
       onClick={onClick}
       aria-label={ariaLabel}
