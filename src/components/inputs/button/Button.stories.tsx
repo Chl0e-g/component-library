@@ -2,8 +2,9 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { expect, fireEvent, fn, userEvent, within } from "storybook/test";
 import { ArrowRight, Download, ThumbsUp } from "lucide-react";
 
+import type { TComponentSize } from "../../../tokens/types.ts";
 import { Button } from "./Button.tsx";
-import type { TButtonSize, TButtonVariant } from "./Button.tsx";
+import type { TButtonVariant } from "./Button.tsx";
 
 const variants: TButtonVariant[] = [
   "primary",
@@ -13,7 +14,7 @@ const variants: TButtonVariant[] = [
   "destructive",
 ];
 
-const sizes: TButtonSize[] = ["sm", "md", "lg"];
+const sizes: TComponentSize[] = ["sm", "md", "lg"];
 
 const cellStyle = { padding: "var(--spacing-sm) var(--spacing-md)" };
 const variantColumnStyle = { ...cellStyle, textAlign: "left" as const };

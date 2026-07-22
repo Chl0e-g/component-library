@@ -1,10 +1,10 @@
 import type { CSSProperties } from "react";
 
+import type { TComponentSize } from "../../../tokens/types.ts";
+
 import "./Spinner.css";
 
-export type TSpinnerSize = "sm" | "md" | "lg";
-
-const sizeToFontSizeToken: Record<TSpinnerSize, string> = {
+const sizeToFontSizeToken: Record<TComponentSize, string> = {
   sm: "sm",
   md: "xl",
   lg: "4xl",
@@ -12,7 +12,7 @@ const sizeToFontSizeToken: Record<TSpinnerSize, string> = {
 
 export interface TSpinnerProps {
   /** Explicit size for standalone use. Omit to inherit the surrounding font-size (e.g. inside Button). */
-  size?: TSpinnerSize;
+  size?: TComponentSize;
 }
 
 /** Inherits font-size by default so it scales inside text/buttons, use `size` prop for standalone use. */

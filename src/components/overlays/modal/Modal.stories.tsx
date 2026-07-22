@@ -2,10 +2,10 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { expect, screen, userEvent, waitFor, within } from "storybook/test";
 import { useState } from "react";
 
+import type { TComponentSize } from "../../../tokens/types.ts";
 import { Text } from "../../foundations/text/Text.tsx";
 import { Button } from "../../inputs/button/Button.tsx";
 import { Modal } from "./Modal.tsx";
-import type { TModalSize } from "./Modal.tsx";
 
 const meta = {
   title: "Overlays/Modal",
@@ -22,7 +22,7 @@ const ModalDemo = ({
   size,
 }: {
   title: string;
-  size?: TModalSize;
+  size?: TComponentSize;
 }) => {
   const [open, setOpen] = useState(false);
 

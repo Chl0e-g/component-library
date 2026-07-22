@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { expect, within } from "storybook/test";
 
+import type { TComponentSize } from "../../../tokens/types.ts";
 import { Flex } from "../../foundations/flex/Flex.tsx";
 import { Spinner } from "./Spinner.tsx";
-import type { TSpinnerSize } from "./Spinner.tsx";
 
-const sizes: TSpinnerSize[] = ["sm", "md", "lg"];
+const sizes: TComponentSize[] = ["sm", "md", "lg"];
 
 const meta = {
   title: "Feedback/Spinner",

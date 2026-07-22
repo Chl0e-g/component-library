@@ -2,18 +2,17 @@ import type { ReactNode } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
 
+import type { TComponentSize } from "../../../tokens/types.ts";
 import { Button } from "../../inputs/button/Button.tsx";
 
 import "./Modal.css";
-
-export type TModalSize = "sm" | "md" | "lg";
 
 export interface TModalProps {
   open: boolean;
   onClose: () => void;
   /** Accessible name for the dialog, rendered as the heading. */
   title: string;
-  size?: TModalSize;
+  size?: TComponentSize;
   children: ReactNode;
 }
 

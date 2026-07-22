@@ -8,3 +8,6 @@ export type TSpacingToken = keyof typeof spacing;
 export type TRadiusToken = keyof typeof radius;
 export type TFontSizeToken = keyof typeof fontSize;
 export type TShadowToken = keyof typeof shadow;
+
+/** Shared t-shirt sizing scale for components (Button, Spinner, Modal, …). */
+export type TComponentSize = "sm" | "md" | "lg";

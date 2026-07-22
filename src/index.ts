@@ -1,5 +1,7 @@
 import "./styles/lib.css";
 
+export type { TComponentSize } from "./tokens/types.ts";
+
 export { Text } from "./components/foundations/text/Text.tsx";
 export type { TTextProps } from "./components/foundations/text/Text.tsx";
 
@@ -15,16 +17,12 @@ export type { TIconProps } from "./components/foundations/icon/Icon.tsx";
 export { Button } from "./components/inputs/button/Button.tsx";
 export type {
   TButtonProps,
-  TButtonSize,
   TButtonVariant,
   TButtonType,
 } from "./components/inputs/button/Button.tsx";
 
 export { Spinner } from "./components/feedback/spinner/Spinner.tsx";
-export type {
-  TSpinnerProps,
-  TSpinnerSize,
-} from "./components/feedback/spinner/Spinner.tsx";
+export type { TSpinnerProps } from "./components/feedback/spinner/Spinner.tsx";
 
 export { Input } from "./components/inputs/input/Input.tsx";
 export type { TInputProps, TInputType } from "./components/inputs/input/Input.tsx";
@@ -33,4 +31,4 @@ export { useToast } from "./components/feedback/toast/useToast.tsx";
 export type { TToastProps } from "./components/feedback/toast/Toast.tsx";
 
 export { Modal } from "./components/overlays/modal/Modal.tsx";
-export type { TModalProps, TModalSize } from "./components/overlays/modal/Modal.tsx";
+export type { TModalProps } from "./components/overlays/modal/Modal.tsx";
