@@ -67,3 +67,9 @@
 .modal-body {
   padding: var(--modal-padding);
 }
+
+.modal-footer {
+  padding: var(--modal-padding);
+  border-top: 1px solid var(--color-neutral-40);
+  background: var(--color-neutral-20);
+}

@@ -7,6 +7,7 @@ import { Flex } from "../../foundations/flex/Flex.tsx";
 import { Button } from "../../inputs/button/Button.tsx";
 import { ModalBody } from "./ModalBody.tsx";
 import { ModalSizeContext } from "./ModalContext.tsx";
+import { ModalFooter } from "./ModalFooter.tsx";
 
 import "./Modal.css";
 
@@ -82,3 +83,4 @@ export function Modal({
 }
 
 Modal.Body = ModalBody;
+Modal.Footer = ModalFooter;
