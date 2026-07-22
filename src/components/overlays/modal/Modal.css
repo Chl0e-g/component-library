@@ -38,15 +38,16 @@
 }
 
 .modal-close {
+  --button-position: calc((var(--modal-padding) - 1lh / 2));
   position: absolute;
-  top: var(--modal-padding);
-  right: var(--modal-padding);
+  top: var(--button-position);
+  right: var(--button-position);
 }
 
-/* The right gutter is the scaled padding plus a constant that clears the
+/* The right gutter is the scaled padding plus the width of the
    fixed-size close button, so a long title never runs under it. */
 .modal-header {
-  padding: var(--modal-padding) calc(var(--modal-padding) + var(--spacing-2xl))
+  padding: var(--modal-padding) calc(var(--modal-padding) + 1lh)
     var(--modal-padding) var(--modal-padding);
   border-bottom: 1px solid var(--color-neutral-40);
 }
