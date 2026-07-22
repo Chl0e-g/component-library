@@ -17,7 +17,7 @@
   max-height: calc(100% - var(--spacing-xl));
   overflow-y: auto;
   background: var(--color-card);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   box-shadow: var(--shadow-lg);
 }
 
