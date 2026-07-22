@@ -1,0 +1,42 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: var(--color-overlay);
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 1000;
+  transform: translate(-50%, -50%);
+  width: calc(100% - var(--spacing-xl));
+  max-width: calc(6 * var(--spacing-5xl));
+  max-height: calc(100% - var(--spacing-xl));
+  overflow-y: auto;
+  background: var(--color-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.modal-close {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-sm);
+}
+
+/* The right padding clears the absolutely-positioned close button, so a long
+   title always wraps before it can run underneath it. */
+.modal-header {
+  padding: var(--spacing-lg) var(--spacing-3xl) var(--spacing-lg)
+    var(--spacing-lg);
+  border-bottom: 1px solid var(--color-neutral-40);
+}
+
+/* Radix renders Title/Description as an <h2>/<p>; drop their default margins. */
+.modal-header :is(h1, h2, h3, h4, h5, h6, p) {
+  margin: 0;
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-lg);
+}
