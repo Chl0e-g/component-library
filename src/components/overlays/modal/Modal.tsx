@@ -6,11 +6,14 @@ import { Button } from "../../inputs/button/Button.tsx";
 
 import "./Modal.css";
 
+export type TModalSize = "sm" | "md" | "lg";
+
 export interface TModalProps {
   open: boolean;
   onClose: () => void;
   /** Accessible name for the dialog, rendered as the heading. */
   title: string;
+  size?: TModalSize;
   children: ReactNode;
 }
 
@@ -24,7 +27,13 @@ export interface TModalProps {
  * </Modal>
  * ```
  */
-export const Modal = ({ open, onClose, title, children }: TModalProps) => {
+export const Modal = ({
+  open,
+  onClose,
+  title,
+  size = "md",
+  children,
+}: TModalProps) => {
   return (
     <Dialog.Root
       open={open}
@@ -37,7 +46,10 @@ export const Modal = ({ open, onClose, title, children }: TModalProps) => {
       <Dialog.Portal>
         <Dialog.Overlay className="modal-overlay" />
         {/* @todo: wire Radix's description a11y once the `subtitle` prop lands. */}
-        <Dialog.Content className="modal" aria-describedby={undefined}>
+        <Dialog.Content
+          className={`modal size-${size}`}
+          aria-describedby={undefined}
+        >
           <div className="modal-close">
             <Button
               variant="ghost"

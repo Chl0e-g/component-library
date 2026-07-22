@@ -33,4 +33,4 @@ export { useToast } from "./components/feedback/toast/useToast.tsx";
 export type { TToastProps } from "./components/feedback/toast/Toast.tsx";
 
 export { Modal } from "./components/overlays/modal/Modal.tsx";
-export type { TModalProps } from "./components/overlays/modal/Modal.tsx";
+export type { TModalProps, TModalSize } from "./components/overlays/modal/Modal.tsx";

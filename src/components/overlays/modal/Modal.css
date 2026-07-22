@@ -11,8 +11,9 @@
   left: 50%;
   z-index: 1000;
   transform: translate(-50%, -50%);
-  width: calc(100% - var(--spacing-xl));
-  max-width: calc(6 * var(--spacing-5xl));
+  width: var(--modal-width);
+  /* Fixed width from `size`, but never wider than the viewport (minus margin). */
+  max-width: calc(100% - var(--spacing-xl));
   max-height: calc(100% - var(--spacing-xl));
   overflow-y: auto;
   background: var(--color-card);
@@ -20,17 +21,37 @@
   box-shadow: var(--shadow-lg);
 }
 
-.modal-close {
-  position: absolute;
-  top: var(--spacing-md);
-  right: var(--spacing-sm);
+/* `size` scales the whole modal: width, section padding, and body gap. */
+.modal.size-sm {
+  --modal-width: calc(5 * var(--spacing-5xl));
+  --modal-padding: var(--spacing-md);
+  --modal-gap: var(--spacing-sm);
 }
 
-/* The right padding clears the absolutely-positioned close button, so a long
-   title always wraps before it can run underneath it. */
+.modal.size-md {
+  --modal-width: calc(6 * var(--spacing-5xl));
+  --modal-padding: var(--spacing-lg);
+  --modal-gap: var(--spacing-md);
+}
+
+.modal.size-lg {
+  --modal-width: calc(8 * var(--spacing-5xl));
+  --modal-padding: var(--spacing-xl);
+  --modal-gap: var(--spacing-lg);
+}
+
+.modal-close {
+  position: absolute;
+  top: var(--modal-padding);
+  right: var(--modal-padding);
+}
+
+/* The right gutter is the scaled padding plus a constant that clears the
+   fixed-size close button, so a long title never runs under it. */
 .modal-header {
-  padding: var(--spacing-lg) var(--spacing-3xl) var(--spacing-lg)
-    var(--spacing-lg);
+  padding: var(--modal-padding)
+    calc(var(--modal-padding) + var(--spacing-3xl)) var(--modal-padding)
+    var(--modal-padding);
   border-bottom: 1px solid var(--color-neutral-40);
 }
 
