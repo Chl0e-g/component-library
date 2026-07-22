@@ -3,6 +3,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
 
 import type { TComponentSize } from "../../../tokens/types.ts";
+import { Flex } from "../../foundations/flex/Flex.tsx";
 import { Button } from "../../inputs/button/Button.tsx";
 
 import "./Modal.css";
@@ -12,6 +13,7 @@ export interface TModalProps {
   onClose: () => void;
   /** Accessible name for the dialog, rendered as the heading. */
   title: string;
+  subtitle?: string;
   size?: TComponentSize;
   children: ReactNode;
 }
@@ -30,6 +32,7 @@ export const Modal = ({
   open,
   onClose,
   title,
+  subtitle,
   size = "md",
   children,
 }: TModalProps) => {
@@ -44,10 +47,9 @@ export const Modal = ({
     >
       <Dialog.Portal>
         <Dialog.Overlay className="modal-overlay" />
-        {/* @todo: wire Radix's description a11y once the `subtitle` prop lands. */}
         <Dialog.Content
           className={`modal size-${size}`}
-          aria-describedby={undefined}
+          {...(subtitle ? {} : { "aria-describedby": undefined })}
         >
           <div className="modal-close">
             <Button
@@ -59,7 +61,16 @@ export const Modal = ({
             />
           </div>
           <header className="modal-header">
-            <Dialog.Title className="text-body">{title}</Dialog.Title>
+            <Flex direction="column" gap="xs">
+              <Dialog.Title className="text-body modal-title">
+                {title}
+              </Dialog.Title>
+              {subtitle && (
+                <Dialog.Description className="text-body modal-subtitle">
+                  {subtitle}
+                </Dialog.Description>
+              )}
+            </Flex>
           </header>
           {children}
         </Dialog.Content>

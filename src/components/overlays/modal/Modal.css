@@ -29,7 +29,7 @@
 }
 
 .modal.size-md {
-  --modal-width: calc(6 * var(--spacing-5xl));
+  --modal-width: calc(7 * var(--spacing-5xl));
   --modal-padding: var(--spacing-lg);
   --modal-gap: var(--spacing-md);
 }
@@ -49,15 +49,20 @@
 /* The right gutter is the scaled padding plus a constant that clears the
    fixed-size close button, so a long title never runs under it. */
 .modal-header {
-  padding: var(--modal-padding)
-    calc(var(--modal-padding) + var(--spacing-3xl)) var(--modal-padding)
-    var(--modal-padding);
+  padding: var(--modal-padding) calc(var(--modal-padding) + var(--spacing-2xl))
+    var(--modal-padding) var(--modal-padding);
   border-bottom: 1px solid var(--color-neutral-40);
 }
 
-/* Radix renders Title/Description as an <h2>/<p>; drop their default margins. */
-.modal-header :is(h1, h2, h3, h4, h5, h6, p) {
+/* Radix renders Title/Description as an <h2>/<p>; reset their default margins
+   and style each explicitly. */
+.modal-title {
   margin: 0;
-  font-weight: var(--font-weight-semibold);
   font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+}
+
+.modal-subtitle {
+  margin: 0;
+  color: var(--color-neutral-70);
 }

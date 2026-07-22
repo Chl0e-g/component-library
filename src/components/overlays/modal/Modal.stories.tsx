@@ -19,9 +19,11 @@ type Story = StoryObj<typeof meta>;
 
 const ModalDemo = ({
   title,
+  subtitle,
   size,
 }: {
   title: string;
+  subtitle?: string;
   size?: TComponentSize;
 }) => {
   const [open, setOpen] = useState(false);
@@ -41,6 +43,7 @@ const ModalDemo = ({
           setOpen(false);
         }}
         title={title}
+        subtitle={subtitle}
         size={size}
       >
         <Text>
@@ -58,7 +61,12 @@ export const Default: Story = {
     onClose: () => {},
     children: null,
   },
-  render: (args) => <ModalDemo title={args.title} />,
+  render: (args) => (
+    <ModalDemo
+      title={args.title}
+      subtitle="They will receive an email with a link to join your workspace."
+    />
+  ),
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
@@ -67,6 +75,9 @@ export const Default: Story = {
     await userEvent.click(canvas.getByRole("button", { name: "Open modal" }));
     const dialog = await screen.findByRole("dialog");
     await expect(dialog).toHaveAccessibleName("Invite team member");
+    await expect(dialog).toHaveAccessibleDescription(
+      "They will receive an email with a link to join your workspace.",
+    );
     await waitFor(() =>
       expect(dialog.contains(document.activeElement)).toBe(true),
     );
