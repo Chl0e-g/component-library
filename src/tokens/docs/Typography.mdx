@@ -1,0 +1,40 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+import {
+  FontSizeScale,
+  FontWeightScale,
+  TextStyleSpecimens,
+} from "./TokenSpecimens.tsx";
+
+<Meta title="Foundations/Design Tokens/Typography" />
+
+# Typography
+
+Typography tokens live in [`src/tokens/typography.ts`](../colors.ts) and are generated as
+`--font-*`, `--line-height-*`, and `--letter-spacing-*` CSS variables. The
+composed **text styles** are what the [`Text`](?path=/docs/foundations-text--docs)
+component uses via `.text-*` classes.
+
+## Font families
+
+- **sans** — `"Inter", system-ui, sans-serif` — body & UI
+- **serif** — `"Libre Baskerville", Georgia, serif` — headings
+- **mono** — `"JetBrains Mono", "Courier New", monospace` — code & numerics
+
+## Type scale
+
+`--font-size-*`
+
+<FontSizeScale />
+
+## Weights
+
+`--font-weight-*`
+
+<FontWeightScale />
+
+## Text styles
+
+The named, composed styles applied by `Text`.
+
+<TextStyleSpecimens />

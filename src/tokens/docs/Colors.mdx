@@ -1,0 +1,35 @@
+import { Meta, ColorPalette, ColorItem } from "@storybook/addon-docs/blocks";
+
+import { neutral, primary, success, warning, danger } from "../colors.ts";
+import { SemanticSwatches } from "./TokenSpecimens.tsx";
+
+<Meta title="Foundations/Design Tokens/Colors" />
+
+# Colors
+
+Colors are defined in [`src/tokens/colors.ts`](?path=/story/foundations-design-tokens-colors--docs)
+and generated as `--color-*` CSS custom properties by `npm run generate:tokens`.
+
+## Palettes
+
+Raw scales. Only use when a semantic role doesn't fit; prefer the
+semantic roles below for anything component-facing.
+
+<ColorPalette>
+  <ColorItem
+    title="neutral"
+    subtitle="Greyscale surfaces & text"
+    colors={neutral}
+  />
+  <ColorItem title="primary" subtitle="Brand" colors={primary} />
+  <ColorItem title="success" subtitle="Positive status" colors={success} />
+  <ColorItem title="warning" subtitle="Caution status" colors={warning} />
+  <ColorItem title="danger" subtitle="Destructive / error" colors={danger} />
+</ColorPalette>
+
+## Semantic roles
+
+The role-based tokens components consume — these map onto the raw tokens
+above, so changing a raw token ripples through.
+
+<SemanticSwatches />
