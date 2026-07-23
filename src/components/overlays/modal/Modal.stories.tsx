@@ -26,7 +26,6 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-/** Full pattern: header, a form body, and a composed cancel + confirm footer. */
 const FormModalExample = ({ size }: { size?: TComponentSize }) => {
   const [open, setOpen] = useState(false);
 
@@ -37,7 +36,7 @@ const FormModalExample = ({ size }: { size?: TComponentSize }) => {
           setOpen(true);
         }}
       >
-        Form modal example
+        Open a modal
       </Button>
       <Modal
         open={open}
@@ -78,90 +77,12 @@ const FormModalExample = ({ size }: { size?: TComponentSize }) => {
   );
 };
 
-/** Header + body only — an informational modal with no action footer. */
-const MessageModalExample = ({ size }: { size?: TComponentSize }) => {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <>
-      <Button
-        variant="secondary"
-        onClick={() => {
-          setOpen(true);
-        }}
-      >
-        Message modal example
-      </Button>
-      <Modal
-        open={open}
-        onClose={() => {
-          setOpen(false);
-        }}
-        title="Workspace updated"
-        subtitle="Your changes are now live for everyone."
-        size={size}
-      >
-        <Modal.Body>
-          <Text>
-            Teammates will see the latest version the next time they refresh.
-          </Text>
-        </Modal.Body>
-      </Modal>
-    </>
-  );
-};
-
-/**
- * The footer takes any children, not just buttons — here an in-progress state
- * with a spinner and status text while an async action runs.
- */
-const ProgressModalExample = ({ size }: { size?: TComponentSize }) => {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <>
-      <Button
-        variant="secondary"
-        onClick={() => {
-          setOpen(true);
-        }}
-      >
-        Progress footer example
-      </Button>
-      <Modal
-        open={open}
-        onClose={() => {
-          setOpen(false);
-        }}
-        title="Setting up workspace"
-        subtitle="We're preparing everything for your team."
-        size={size}
-      >
-        <Modal.Body>
-          <Text>This usually takes a few seconds — you can keep working.</Text>
-        </Modal.Body>
-        <Modal.Footer>
-          <Spinner size="sm" />
-          <Text variant="caption">Setting up…</Text>
-        </Modal.Footer>
-      </Modal>
-    </>
-  );
-};
-
 const Examples = ({ size }: { size?: TComponentSize }) => (
   <Flex gap="sm">
     <FormModalExample size={size} />
-    <MessageModalExample size={size} />
-    <ProgressModalExample size={size} />
   </Flex>
 );
 
-/**
- * `title` / `subtitle` live on `Modal`; content goes in `Modal.Body`; actions
- * (or anything else) go in the optional `Modal.Footer`. Each trigger below opens
- * a different composition.
- */
 export const Default: Story = {
   render: () => <Examples />,
   play: async ({ canvasElement }) => {
@@ -255,10 +176,6 @@ export const Default: Story = {
   },
 };
 
-/**
- * `size` (`sm` | `md` | `lg`) sets a fixed width and scales the padding, shrinking
- * only when the viewport is narrower than the modal.
- */
 export const Small: Story = {
   render: () => <Examples size="sm" />,
   play: async ({ canvasElement }) => {
