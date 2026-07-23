@@ -4,8 +4,6 @@ import { useState } from "react";
 
 import type { TComponentSize } from "../../../tokens/types.ts";
 import { Flex } from "../../foundations/flex/Flex.tsx";
-import { Text } from "../../foundations/text/Text.tsx";
-import { Spinner } from "../../feedback/spinner/Spinner.tsx";
 import { Button } from "../../inputs/button/Button.tsx";
 import { Input } from "../../inputs/input/Input.tsx";
 import { Modal } from "./Modal.tsx";
