@@ -2,9 +2,9 @@
 
 A reusable React component library built as a portfolio project to demonstrate the principles of implementing and maintaining a modern design system.
 
-The project focuses on building accessible, composable and type-safe UI components with a strong emphasis on developer experience. It's a showcase of how I'd approach creating a production-quality component library.
+The project focuses on building accessible, composable, type-safe and tested UI components with a strong emphasis on developer experience. It's a showcase of how I'd approach creating a production-quality component library.
 
-Please note: It's fairly small right now, I'm still adding components!
+Please note: It's in progress right now, I'm still adding components!
 
 ## Goals
 
@@ -35,7 +35,6 @@ Please note: It's fairly small right now, I'm still adding components!
 - ESLint
 - Prettier
 - Radix UI (headless primitives for overlays — see [Dependencies](#dependencies))
-
 
 ## Dependencies
 
